@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('curriculum-vitae', 'SiteController@curriculum_vitae')->name('curriculum_vitae');
