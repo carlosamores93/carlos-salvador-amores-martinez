@@ -37,9 +37,8 @@
         @include('frontend.curriculum_vitae.nav_star')
         @include('frontend.curriculum_vitae.intro')
         @include('frontend.curriculum_vitae.about')
-        @include('frontend.curriculum_vitae.service')
+        @include('frontend.curriculum_vitae.skills')
         @include('frontend.curriculum_vitae.work')
-        @include('frontend.curriculum_vitae.skill')
         @include('frontend.curriculum_vitae.contact')
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

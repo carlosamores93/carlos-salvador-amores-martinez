@@ -5,11 +5,11 @@
         <div class="col-sm-12">
           <div class="title-box text-center">
             <h3 class="title-a">
-              Portfolio
+              Works
             </h3>
-            <p class="subtitle-a">
+            {{-- <p class="subtitle-a">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
+            </p> --}}
             <div class="line-mf"></div>
           </div>
         </div>
@@ -17,146 +17,55 @@
       <div class="row">
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-1.jpg') }}" data-lightbox="gallery-mf">
               <div class="work-img">
                 <img src="{{ asset('curriculum_vitae/img/work-1.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
+                  <div class="col-sm-12">
+                    <h2 class="w-title">Beca Cadmo/Conocimiento</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
+                      <span class="w-ctegory">Beca de 2 meses en el departamento de sistemas y control de calidad. Apoyo en la producción de contenidos replicando modelos existentes.</span> / <span class="w-date">2015</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-2.jpg') }}" data-lightbox="gallery-mf">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/work-2.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('curriculum_vitae/img/work-1.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Loreda Cuno Nere</h2>
+                  <div class="col-sm-12">
+                    <h2 class="w-title">Beca Departamento IT de iAhorro</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
+                      <span class="w-ctegory">Beca de 9 meses en el departamento de IT de iAhorro, perteneciente al grupo BC. Mantenimiento y evolución de componentes de código ya existentes</span> <span class="w-date"> Junio 2017 - Febrero 2018</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-3.jpg') }}" data-lightbox="gallery-mf">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/work-3.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('curriculum_vitae/img/work-1.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Mavrito Lana Dere</h2>
+                  <div class="col-sm-12">
+                    <h2 class="w-title">Programador backend en iAhorro</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
+                      <span class="w-ctegory">Desarrollo web (Front End y Back End) y desarrollo de APIs RESTFul y webservices. Toma de requisitos, diseño y desarrollo de componentes de aplicación web y gestor de contenidos. Desarrollo de herramientas para adaptar a las necesidades del departamento de marketing digital o comercio.</span> <span class="w-date"> Marzo 2018 - Actualmente</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-4.jpg') }}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/work-4.jpg') }}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Bindo Laro Cado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-5.jpg') }}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/work-5.jpg') }}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Lena Mado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{{ asset('curriculum_vitae/img/work-6.jpg') }}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/work-6.jpg') }}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Big Bang</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
           </div>
         </div>
         
@@ -164,42 +73,3 @@
     </div>
   </section>
   <!--/ Section Portfolio End /-->
-
-  <!--/ Section Testimonials Star /-->
-  <div class="testimonials paralax-mf bg-image" style="background-image: url(curriculum_vitae/img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="testimonial-mf" class="owl-carousel owl-theme">
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="{{ asset('curriculum_vitae/img/testimonial-2.jpg') }}" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Xavi Alonso</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-            <div class="testimonial-box">
-              <div class="author-test">
-                <img src="{{ asset('curriculum_vitae/img/testimonial-4.jpg') }}" alt="" class="rounded-circle b-shadow-a">
-                <span class="author">Marta Socrate</span>
-              </div>
-              <div class="content-test">
-                <p class="description lead">
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-                <span class="comit"><i class="fa fa-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>

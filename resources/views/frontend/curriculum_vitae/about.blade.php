@@ -13,33 +13,38 @@
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Morgan Freeman</span></p>
-                      <p><span class="title-s">Profile: </span> <span>full stack developer</span></p>
-                      <p><span class="title-s">Email: </span> <span>contact@example.com</span></p>
-                      <p><span class="title-s">Phone: </span> <span>(617) 557-0089</span></p>
+                      <p><span class="title-s">Nombre: </span> <span>Carlos Amores</span></p>
+                      <p><span class="title-s">Puesto: </span> <span>Programador backend</span></p>
+                      <p><span class="title-s">Email: </span> <span> <a href="mailto:amorescarlos93@hotmail.com">amorescarlos93@hotmail.com</a> </span></p>
+                      <p><span class="title-s">Teléfono: </span> <span>(+34) 628 60 60 93</span></p>
                     </div>
                   </div>
                 </div>
                 <div class="skill-mf">
-                  <p class="title-s">Skill</p>
-                  <span>HTML</span> <span class="pull-right">85%</span>
+                  {{-- <p class="title-s">Skill</p> --}}
+                  <span>Laravel</span> <span class="pull-right">85%</span>
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
-                  <span>CSS3</span> <span class="pull-right">75%</span>
+                  <span>LAMP</span> <span class="pull-right">80%</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
-                  <span>PHP</span> <span class="pull-right">50%</span>
+                  <span>Java</span> <span class="pull-right">70%</span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+                  <span>C/C++</span> <span class="pull-right">50%</span>
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
-                  <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
+                  <span>JS, HTML, CSS, SASS</span> <span class="pull-right">40%</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
                 </div>
@@ -52,20 +57,16 @@
                     </h5>
                   </div>
                   <p class="lead">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
-                    imperdiet et, porttitor
-                    at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
-                    porttitor accumsan tincidunt.
+                    <span class="title-s">Primaria:</span> de 3º a 6º en el Colegio Dulce Nombre de Jesús, barrio Salamanca, Madrid.
                   </p>
                   <p class="lead">
-                    Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis
-                    porttitor volutpat. Vestibulum
-                    ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
+                    <span class="title-s">Educación Secundaria Obligatoria:</span> de 1º a 4º ESO en el IES Carlos Mª Rodriguez de Valcárcel , barrio Moratalaz, Madrid.
                   </p>
                   <p class="lead">
-                    Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    Nulla porttitor accumsan
-                    tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                    <span class="title-s">Bachillerato</span> de 1º a 2º en el IES Felipe II , barrio Moratalaz, Madrid.
+                  </p>
+                  <p class="lead">
+                    <span class="title-s">Grado Ing Computadores:</span> en la Facultad de Infórmatica, Universidad Complutense de Madrid.
                   </p>
                 </div>
               </div>

@@ -11,7 +11,11 @@
                   Licensing information: https://bootstrapmade.com/license/
                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
                 -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
+                
+              </div>
+              <div class="credits">
+                Code: <strong><a href="https://gitlab.com/carlosamores93/carlos-salvador-amores-martinez" target="_blank">Gitlab Carlos Amores</a></strong>
               </div>
             </div>
           </div>
