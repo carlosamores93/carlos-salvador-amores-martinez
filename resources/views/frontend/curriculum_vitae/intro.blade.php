@@ -6,15 +6,15 @@
                 {{-- <p class="display-6 color-d">Hello, world!</p> --}}
                 <h1 class="intro-title mb-4">Hello, I'm Carlos Amores</h1>
                 <p class="intro-subtitle">
-                    {{-- <strong class="text-slider"> 
-                    </strong> --}}
                     <span class="text-slider-items">
-                        Backend Developer
-                        I work in iAhorro.com
-                        Graduated in Computer Engineering
-                        Facultad de Informática
-                        Universidad Complutense de Madrid
+                        I work in iAhorro.com,
+                        Graduated in Computer Engineering,
+                        Facultad de Informática,
+                        Universidad Complutense de Madrid,
                     </span>
+                    <strong class="text-slider"> 
+                        Backend Developer
+                    </strong>
                 </p>
                 {{-- <p class="pt-3">
                     <a class="btn btn-primary btn js-scroll px-4" href="">

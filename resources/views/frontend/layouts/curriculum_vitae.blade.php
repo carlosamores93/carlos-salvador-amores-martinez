@@ -8,7 +8,7 @@
         <link rel="canonical" href="{{ route('curriculum_vitae') }}">
 
         <!-- Favicons -->
-        <link href="{{ asset('curriculum_vitae/img/favicon.png') }}" rel="icon">
+        <link href="{{ asset('curriculum_vitae/img/favicon.ico') }}" rel="icon">
         <link href="{{ asset('curriculum_vitae/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
         <!-- Bootstrap CSS File -->

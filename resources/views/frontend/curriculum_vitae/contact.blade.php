@@ -1,4 +1,4 @@
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(curriculum_vitae/img/overlay-bg.jpg)">
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(curriculum_vitae/img/oriente.JPG)">
     <div class="overlay-mf"></div>
     <div class="container">
       <div class="row">
