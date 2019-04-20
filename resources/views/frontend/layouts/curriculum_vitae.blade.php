@@ -9,7 +9,7 @@
 
         <!-- Favicons -->
         <link href="{{ asset('curriculum_vitae/img/favicon.ico') }}" rel="icon">
-        <link href="{{ asset('curriculum_vitae/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('curriculum_vitae/img/favicon.ico') }}" rel="apple-touch-icon">
 
         <!-- Bootstrap CSS File -->
         <link href="{{ asset('curriculum_vitae/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
