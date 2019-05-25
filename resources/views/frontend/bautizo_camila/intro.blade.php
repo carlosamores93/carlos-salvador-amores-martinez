@@ -1,5 +1,5 @@
-<div id="home" class="intro route bg-image" style="background-image: url(curriculum_vitae/img/guayaquil.jpg)">
-    <div class="overlay-itro"></div>
+<div id="home" class="intro route bg-image" style="background-image: url(curriculum_vitae/img/XXX.jpg)">
+    {{-- <div class="overlay-itro"></div>
         <div class="intro-content display-table">
             <div class="table-cell">
             <div class="container">
@@ -9,9 +9,8 @@
                     <strong class="text-slider"> 
                         Madrina: Jenny Coronel 👩‍👧
                     </strong>
-
                 </p>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
