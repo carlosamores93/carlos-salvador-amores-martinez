@@ -34,6 +34,7 @@
 
     <body id="page-top">
 
+        @include('frontend.bautizo_camila.nav_star')
         @include('frontend.bautizo_camila.intro')
         @include('frontend.bautizo_camila.about')
         @include('frontend.bautizo_camila.skills')

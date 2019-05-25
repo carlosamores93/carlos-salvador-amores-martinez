@@ -7,9 +7,9 @@
             <h3 class="title-a">
               Iglesia, recepción y mas
             </h3>
-            {{-- <p class="subtitle-a">
+            <p class="subtitle-a">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p> --}}
+            </p>
             <div class="line-mf"></div>
           </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/iglesia.png') }}" alt="" class="img-fluid">
+                <img src="{{ asset('img/iglesia.png') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -36,7 +36,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/local.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('img/local.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -54,7 +54,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/regalo.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('img/regalo.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">

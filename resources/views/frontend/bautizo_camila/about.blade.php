@@ -5,22 +5,7 @@
           <div class="box-shadow-full">
             <div class="row">
               <div class="col-md-6  text-center">
-                      <img src="{{ asset('curriculum_vitae/img/testimonial-4.jpg') }}" class="img-fluid rounded b-shadow-a" alt="">
-                {{-- <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="{{ asset('curriculum_vitae/img/testimonial-4.jpg') }}" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Nombre: </span> <span>Carlos Amores</span></p>
-                      <p><span class="title-s">Puesto: </span> <span>Programador backend</span></p>
-                      <p><span class="title-s">Email: </span> <span> <a href="mailto:amorescarlos93@hotmail.com">amorescarlos93@hotmail.com</a> </span></p>
-                      <p><span class="title-s">Teléfono: </span> <span>(+34) 628 60 60 93</span></p>
-                    </div>
-                  </div>
-                </div> --}}
+                <img src="{{ asset('img/leonor.jpg') }}" class="img-fluid rounded b-shadow-a" alt="">
               </div>
               <div class="col-md-6">
                 <div class="about-me pt-4 pt-md-0">
@@ -30,7 +15,15 @@
                     </h5>
                   </div>
                   <p class="lead">
-                    <span class="title-s">Nacimiento:</span> ....
+                    <span class="title-s">Nacimiento:
+
+
+                    </span> ....
+
+
+                    Hola chicos, aquí está toda la información acerca de mi bautizo 🥳 😇 🤗
+      
+                        Madrina: Jenny Coronel 👩‍👧
                   </p>
                 </div>
               </div>
