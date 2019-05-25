@@ -15,15 +15,11 @@
                     </h5>
                   </div>
                   <p class="lead">
-                    <span class="title-s">Nacimiento:
-
-
-                    </span> ....
-
-
-                    Hola chicos, aquí está toda la información acerca de mi bautizo 🥳 😇 🤗
-      
-                        Madrina: Jenny Coronel 👩‍👧
+                    Mis padres Carlos Amores, Jessica Obando y mi madrina Jenny Coronel👩‍👧, tienen el honor de invitarle a la ceremonia de mi bautizo😇 el día <b>15 de JUNIO de 2019</b> a las <b>12:30</b>
+                    <br>
+                    Espero que puedan acompañarme en este día tan especial para mí, muchas gracias. Por cierto justo este día (15 Junio) es el cumpleaños de mi mamá 🎂, por si quieren tener algun detalle con ella 🥰
+                    <br>
+                    Por favor, confirmen su asistencia
                   </p>
                 </div>
               </div>
