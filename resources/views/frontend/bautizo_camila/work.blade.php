@@ -25,7 +25,7 @@
                   <div class="col-sm-12">
                     <h2 class="w-title">Parroquia Nuestra Señora de los Apóstoles</h2>
                     <div class="w-more">
-                      <span class="w-ctegory" style="color:black;"> Esta es la iglesia elegida para celebrar mi bautizo. La ceremia empieza a las 12:30, y está ubicada en la <a href="https://www.google.com/maps/place/Parroquia+Nuestra+Se%C3%B1ora+de+los+Ap%C3%B3stoles/@40.4029285,-3.6373827,150m/data=!3m1!1e3!4m13!1m7!3m6!1s0xd4225ecd0c5bf63:0x2df9c554f8298330!2sMoratalaz,+28030+Madrid!3b1!8m2!3d40.4072203!4d-3.6570055!3m4!1s0xd422590f87dcaef:0x2a04e7098b73aa23!8m2!3d40.4028738!4d-3.6373879" target="_blank" style="color:blue;">calle Luis de Hoyos Sainz, 94B, 28030 Madrid (click aquí para ver en el mapa)</a></span>
+                      <span class="w-ctegory" style="color:black;"> Esta es la iglesia elegida para celebrar mi bautizo. La ceremonia empieza a las 12:30, y está ubicada en la <a href="https://www.google.com/maps/place/Parroquia+Nuestra+Se%C3%B1ora+de+los+Ap%C3%B3stoles/@40.4029285,-3.6373827,150m/data=!3m1!1e3!4m13!1m7!3m6!1s0xd4225ecd0c5bf63:0x2df9c554f8298330!2sMoratalaz,+28030+Madrid!3b1!8m2!3d40.4072203!4d-3.6570055!3m4!1s0xd422590f87dcaef:0x2a04e7098b73aa23!8m2!3d40.4028738!4d-3.6373879" target="_blank" style="color:blue;">calle Luis de Hoyos Sainz, 94B, 28030 Madrid (click aquí para ver en el mapa)</a></span>
                     </div>
                   </div>
                 </div>
