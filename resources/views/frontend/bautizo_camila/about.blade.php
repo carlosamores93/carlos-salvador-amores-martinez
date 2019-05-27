@@ -21,7 +21,7 @@
                     Espero que puedan acompañarme en este día tan especial para mí, muchas gracias. 
                     <br>
                     <br>
-                    Por cierto justo este día (15 Junio) <b>es el cumpleaños de mi mamá</b> 🎂, por si quieren tener algún detalle con ella.
+                    Por cierto justo este día (15 Junio) <b>es el cumpleaños de mi mamá Jessica Obando</b> 🎂, por si quieren tener algún detalle con ella.
                     <br>
                     <br>
                     Por favor, confirmen su asistencia
