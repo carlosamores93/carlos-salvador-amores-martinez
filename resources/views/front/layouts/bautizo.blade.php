@@ -34,12 +34,12 @@
 
     <body id="page-top">
 
-        @include('frontend.layouts.bautizo.nav_star')
-        @include('frontend.layouts.bautizo.intro')
-        @include('frontend.layouts.bautizo.about')
-        @include('frontend.layouts.bautizo.skills')
-        @include('frontend.layouts.bautizo.work')
-        @include('frontend.layouts.bautizo.contact')
+        @include('front.layouts.bautizo.nav_star')
+        @include('front.layouts.bautizo.intro')
+        @include('front.layouts.bautizo.about')
+        @include('front.layouts.bautizo.skills')
+        @include('front.layouts.bautizo.work')
+        @include('front.layouts.bautizo.contact')
 
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
