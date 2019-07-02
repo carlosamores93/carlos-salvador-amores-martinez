@@ -15,6 +15,9 @@ Route::get('/', function () {
     return redirect(route('curriculum'));
 });
 
+Route::get('/admin', function () {
+    return view('back.home');
+});
 
 Route::get('curriculum-vitae', 'SiteController@curriculum')->name('curriculum');
 //Route::get('bautizo-camila', 'SiteController@bautizo')->name('bautizo');
