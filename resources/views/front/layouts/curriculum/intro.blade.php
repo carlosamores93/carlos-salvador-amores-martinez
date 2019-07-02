@@ -1,4 +1,4 @@
-<div id="home" class="intro route bg-image" style="background-image: url(curriculum_vitae/img/guayaquil.jpg)">
+<div id="home" class="intro route bg-image" style="background-image: url(curriculum/img/guayaquil.jpg)">
     <div class="overlay-itro"></div>
         <div class="intro-content display-table">
             <div class="table-cell">
@@ -12,7 +12,7 @@
                         Facultad de Informática,
                         Universidad Complutense de Madrid,
                     </span>
-                    <strong class="text-slider"> 
+                    <strong class="text-slider">
                         Backend Developer
                     </strong>
                 </p>

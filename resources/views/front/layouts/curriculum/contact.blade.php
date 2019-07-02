@@ -1,4 +1,4 @@
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(curriculum_vitae/img/oriente.JPG)">
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(curriculum/img/oriente.JPG)">
     <div class="overlay-mf"></div>
     <div class="container">
       <div class="row">
@@ -36,7 +36,7 @@
     </div>
 
 
-    @include('frontend.curriculum_vitae.partials.footer')
+    @include('frontend.layouts.curriculum.partials.footer')
 
 
   </section>

@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-/public/curriculum_vitae
+/public/cv
 /public/js
 /storage/*.key
 /vendor

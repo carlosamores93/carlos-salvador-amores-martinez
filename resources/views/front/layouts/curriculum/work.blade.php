@@ -18,7 +18,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/cadmo.png') }}" alt="" class="img-fluid">
+                <img src="{{ asset('curriculum/img/cadmo.png') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -36,7 +36,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/iahorro.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('curriculum/img/iahorro.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -54,7 +54,7 @@
         <div class="col-md-4">
           <div class="work-box">
               <div class="work-img">
-                <img src="{{ asset('curriculum_vitae/img/iahorro.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('curriculum/img/iahorro.jpg') }}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -68,7 +68,7 @@
               </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </section>

@@ -8,7 +8,7 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
-                      {{-- <img src="{{ asset('curriculum_vitae/img/testimonial-4.jpg') }}" class="img-fluid rounded b-shadow-a" alt=""> --}}
+                      {{-- <img src="{{ asset('curriculum/img/testimonial-4.jpg') }}" class="img-fluid rounded b-shadow-a" alt=""> --}}
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">

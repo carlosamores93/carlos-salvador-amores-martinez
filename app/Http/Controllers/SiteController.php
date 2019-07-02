@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class SiteController extends Controller{
 
 
-    public function curriculum_vitae(){
-    	return view('frontend.layouts.curriculum_vitae');
+    public function curriculum(){
+    	return view('front.layouts.curriculum');
     }
 
-    public function bautizo_camila(){
-    	return view('frontend.layouts.bautizo_camila');
+    public function bautizo(){
+    	return view('front.layouts.bautizo');
     }
 
-    
+
 }
