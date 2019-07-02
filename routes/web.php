@@ -18,3 +18,7 @@ Route::get('/', function () {
 
 Route::get('curriculum-vitae', 'SiteController@curriculum')->name('curriculum');
 //Route::get('bautizo-camila', 'SiteController@bautizo')->name('bautizo');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
