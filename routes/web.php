@@ -17,6 +17,4 @@ Route::get('curriculum-vitae', 'SiteController@curriculum')->name('curriculum');
 
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'CmsController@home')->name('cms-home');
