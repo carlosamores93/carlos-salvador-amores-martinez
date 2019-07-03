@@ -111,7 +111,7 @@
               <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
             </div>
             <div class="counter-num">
-              <p class="counter">3</p>
+              <p class="counter">{{ (int)date('Y')-2016 }}</p>
               <span class="counter-text">YEARS OF EXPERIENCE</span>
             </div>
           </div>
@@ -122,7 +122,7 @@
               <span class="ico-circle"><i class="ion-ios-pulse"></i></span>
             </div>
             <div class="counter-num">
-              <p class="counter">26</p>
+              <p class="counter">{{ (int)date('Y')-1993 }}</p>
               <span class="counter-text">YEARS OLD</span>
             </div>
           </div>

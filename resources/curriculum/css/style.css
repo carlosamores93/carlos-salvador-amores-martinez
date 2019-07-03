@@ -802,6 +802,10 @@ a:hover {
   color: #0078ff;
 }
 
+.work-content .w-more p {
+  color: #0078ff;
+}
+
 .work-content .w-like {
   font-size: 2.5rem;
   color: #0078ff;

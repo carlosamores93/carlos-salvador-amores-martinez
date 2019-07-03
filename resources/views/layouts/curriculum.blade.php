@@ -11,21 +11,16 @@
         <link href="{{ asset('curriculum/img/favicon.ico') }}" rel="icon">
         <link href="{{ asset('curriculum/img/favicon.ico') }}" rel="apple-touch-icon">
 
-
-        @if (env('MIN_CSS_CV') == 'true')
-            <link href="{{ asset('curriculum/lib/cv.min.css') }}" rel="stylesheet">
-        @else
-            {{-- Bootstrap CSS File --}}
-            <link href="{{ asset('curriculum/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-            {{-- Libraries CSS Files --}}
-            <link href="{{ asset('curriculum/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('curriculum/lib/animate/animate.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('curriculum/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('curriculum/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('curriculum/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
-            {{-- Main Stylesheet File --}}
-            <link href="{{ asset('curriculum/css/style.css') }}" rel="stylesheet">
-        @endif
+        {{-- Bootstrap CSS File --}}
+        <link href="{{ asset('curriculum/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        {{-- Libraries CSS Files --}}
+        <link href="{{ asset('curriculum/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('curriculum/lib/animate/animate.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('curriculum/lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('curriculum/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('curriculum/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+        {{-- Main Stylesheet File --}}
+        <link href="{{ asset('curriculum/css/style.css') }}" rel="stylesheet">
 
 
         <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="44a44001-0eb9-4ff3-817e-f2118aee54ae" type="text/javascript" async></script>
