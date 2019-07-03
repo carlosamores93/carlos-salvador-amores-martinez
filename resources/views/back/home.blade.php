@@ -1,7 +1,7 @@
 @extends('layouts.cms')
 
 @section('head')
-	<title>Matrix Template - The Ultimate Multipurpose admin template</title>
+	<title>CMS</title>
     <meta name="description" content="">
     <link href="{{ asset('cms/assets/libs/flot/css/float-chart.css') }}"rel="stylesheet">
     <link href="{{ asset('cms/dist/css/style.min.css') }}"rel="stylesheet">

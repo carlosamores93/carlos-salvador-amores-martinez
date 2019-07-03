@@ -13,7 +13,7 @@ class CmsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => array('login')]);
+        $this->middleware('auth');
     }
 
     public function home()
