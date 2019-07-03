@@ -26,13 +26,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="klk.html" class="sidebar-link">
+                            <a href="{{ route('work.index') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-outline"></i>
                                 <span class="hide-menu"> All works </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="fgf.hyml" class="sidebar-link">
+                            <a href="{{ route('work.create') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-plus"></i>
                                 <span class="hide-menu"> New work </span>
                             </a>
