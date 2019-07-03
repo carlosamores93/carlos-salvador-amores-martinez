@@ -69,4 +69,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+    public function showRegistrationForm()
+    {
+        if (env('APP_ENV') == 'local') {
+            $authentication = 'ok';
+            return view('front.register', compact('authentication'));
+        }else{
+            return abort(404);
+        }
+    }
 }

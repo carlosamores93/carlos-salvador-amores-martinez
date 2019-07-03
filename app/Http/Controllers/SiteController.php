@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class SiteController extends Controller{
 
 
+    public function home(){
+    	return redirect(route('curriculum'));
+    }
+
     public function curriculum(){
     	return view('front.layouts.curriculum');
     }

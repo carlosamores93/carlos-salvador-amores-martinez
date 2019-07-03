@@ -29,4 +29,13 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showLinkRequestForm()
+    {
+        if (env('APP_ENV') == 'local') {
+            return view('auth.passwords.email');
+        }else{
+            return abort(404);
+        }
+    }
 }

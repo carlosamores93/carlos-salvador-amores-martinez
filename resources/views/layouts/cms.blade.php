@@ -5,22 +5,28 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('cms/assets/images/favicon.png') }}">
+        {{-- Favicons --}}
+        <link href="{{ asset('curriculum/img/favicon.ico') }}" rel="icon">
+        <link href="{{ asset('curriculum/img/favicon.ico') }}" rel="apple-touch-icon">
         @yield('head')
     </head>
 
     <body>
-        @include('layouts.cms.preloader')
-        <div id="main-wrapper">
-            @include('layouts.cms.header')
-            @include('layouts.cms.aside')
-            <div class="page-wrapper">
-                @yield('content')
-                <footer class="footer text-center">
-                    All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-                </footer>
+        @if(isset($authentication))
+            @yield('content')
+        @else
+            @include('layouts.cms.preloader')
+            <div id="main-wrapper">
+                @include('layouts.cms.header')
+                @include('layouts.cms.aside')
+                <div class="page-wrapper">
+                    @yield('content')
+                    <footer class="footer text-center">
+                        All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                    </footer>
+                </div>
             </div>
-        </div>
+        @endif
         @yield('script')
     </body>
 

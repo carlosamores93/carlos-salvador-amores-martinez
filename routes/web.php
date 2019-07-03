@@ -11,17 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect(route('curriculum'));
-});
-
-Route::get('/admin', function () {
-    return view('back.home');
-});
-
+Route::get('/', 'SiteController@home')->name('home');
 Route::get('curriculum-vitae', 'SiteController@curriculum')->name('curriculum');
 //Route::get('bautizo-camila', 'SiteController@bautizo')->name('bautizo');
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'CmsController@home')->name('cms-home');

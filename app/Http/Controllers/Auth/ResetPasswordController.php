@@ -36,4 +36,15 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        if (env('APP_ENV') == 'local') {
+            return view('auth.passwords.reset')->with(
+                ['token' => $token, 'email' => $request->email]
+            );
+        }else{
+            return abort(404);
+        }
+    }
 }
