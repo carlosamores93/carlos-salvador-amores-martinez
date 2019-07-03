@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/jquery-minicolors/jquery.minicolors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/quill/dist/quill.snow.css') }}">
     <link href="{{ asset('cms/dist/css/style.min.css') }}" rel="stylesheet">
 @endsection
 
@@ -16,19 +15,21 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal">
+                    <form method="POST" class="form-horizontal" action="{{ route('work.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
                         <div class="card-body">
                             <h2 class="card-title">New work</h2>
                             <div class="form-group row">
                                 <label for="email1" class="col-sm-3 text-right control-label col-form-label">Company</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name='company' class="form-control" id="email1" placeholder="Company Name Here">
+                                    <input type="text" name='company' class="form-control" id="email1" placeholder="Company name" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Job</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="job" class="form-control" id="fname" placeholder="Job">
+                                    <input type="text" name="job" class="form-control" id="fname" placeholder="Job" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -53,7 +54,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">Start date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="start_date" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                    <input type="text" name="start_date" class="form-control" id="datepicker-autoclose" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -62,7 +63,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">End date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose__" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -71,7 +72,7 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Store work</button>
                             </div>
                         </div>
                     </form>
@@ -101,7 +102,6 @@
     <script src="{{ asset('cms/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js') }}"></script>
     <script src="{{ asset('cms/assets/libs/jquery-minicolors/jquery.minicolors.min.js') }}"></script>
     <script src="{{ asset('cms/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('cms/assets/libs/quill/dist/quill.min.js') }}"></script>
     <script>
         //***********************************//
         // For select 2
@@ -139,9 +139,6 @@
         jQuery('#datepicker-autoclose').datepicker({
             autoclose: true,
             todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
         });
 
     </script>

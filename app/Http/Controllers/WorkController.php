@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Work;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -44,7 +45,9 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request['slug'] = str_slug($request->company);
+        Work::create($request->all());
+        return redirect()->route('cms-home');
     }
 
     /**

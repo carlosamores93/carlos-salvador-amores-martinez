@@ -22,6 +22,6 @@ Route::get('/admin', 'CmsController@home')->name('cms-home');
 // Profile
 Route::get('/admin/profile', 'CmsController@profile')->name('cms-profile');
 Route::post('/admin/profile', 'CmsController@updateProfile')->name('cms-profile-update');
-Route::resource('work', 'WorkController');
-Route::resource('skill', 'SkillController');
-Route::resource('miniskill', 'MiniskillController');
+Route::resource('admin/work', 'WorkController');
+Route::resource('admin/skill', 'SkillController');
+Route::resource('admin/miniskill', 'MiniskillController');
