@@ -24,7 +24,7 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $works = Work::all();
+        $works = Work::orderBy('start_date', 'ASC')->get();
         return view('back.work.index', compact('works'));
     }
 
@@ -48,6 +48,7 @@ class WorkController extends Controller
     {
         $request['slug'] = str_slug($request->company);
         Work::create($request->all());
+        $this->storeImgForProduct($request);
         return redirect()->route('work.index');
     }
 
@@ -59,7 +60,6 @@ class WorkController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -70,7 +70,8 @@ class WorkController extends Controller
      */
     public function edit($id)
     {
-        return view('back.work.edit');
+        $work = Work::where('id', $id)->firstOrFail();
+        return view('back.work.edit', compact('work'));
     }
 
     /**
@@ -82,7 +83,17 @@ class WorkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $work = Work::where('id', $id)->firstOrFail();
+        $work->company = $request->company;
+        $work->job = $request->job;
+        $work->slug = str_slug($request->company);
+        $work->status = $request->status;
+        $work->description = $request->description;
+        $work->start_date = $request->start_date;
+        $work->end_date = $request->end_date;
+        $work->save();
+        $this->storeImgForProduct($request);
+        return redirect()->route('work.index');
     }
 
     /**
@@ -96,5 +107,18 @@ class WorkController extends Controller
         $work = Work::where('id', $id);
         $work->delete();
         return redirect()->route('work.index');
+    }
+
+    private function storeImgForProduct(Request $request)
+    {
+        if($request->file('file')){
+            $image_name = str_slug($request->company) .'.' . $request->file('file')->getClientOriginalExtension();
+            if (env('APP_ENV') == 'local') {
+                $request->file('file')->move(base_path() . '/public/img/', $image_name);
+            }else{
+                $request->file('file')->move(base_path() . '/public_html/img/', $image_name);
+                $request->file('file')->move(base_path() . '/public/img/', $image_name);
+            }
+        }
     }
 }

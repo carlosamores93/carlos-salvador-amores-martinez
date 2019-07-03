@@ -25,7 +25,7 @@
                                         <th>Job</th>
                                         <th>Status</th>
                                         <th>Description</th>
-                                        <th>Star date</th>
+                                        <th>Start date</th>
                                         <th>End date</th>
                                         <th>Actions</th>
                                     </tr>
@@ -64,7 +64,7 @@
                                         <th>Job</th>
                                         <th>Status</th>
                                         <th>Description</th>
-                                        <th>Star date</th>
+                                        <th>Start date</th>
                                         <th>End date</th>
                                         <th>Actions</th>
                                     </tr>

@@ -1,7 +1,7 @@
 @extends('layouts.cms')
 
 @section('head')
-	<title>Create work</title>
+	<title>Edit work</title>
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('cms/assets/libs/jquery-minicolors/jquery.minicolors.css') }}">
@@ -15,32 +15,32 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form method="POST" class="form-horizontal" action="{{ route('work.store') }}" enctype="multipart/form-data">
+                    <form method="POST" class="form-horizontal" action="{{ route('work.update', [ 'work' => $work->id]) }}" enctype="multipart/form-data">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
                         <div class="card-body">
                             <h2 class="card-title">New work</h2>
                             <div class="form-group row">
                                 <label for="email1" class="col-sm-3 text-right control-label col-form-label">Company</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name='company' class="form-control" id="email1" placeholder="Company name" required>
+                                    <input type="text" name='company' class="form-control" id="email1" placeholder="Company name" value="{{ $work->company }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Job</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="job" class="form-control" id="fname" placeholder="Job" required>
+                                    <input type="text" name="job" class="form-control" id="fname" placeholder="Job" value="{{ $work->job }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">Status</label>
                                 <div class="col-sm-9">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation1" name="status" value="1" required>
+                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation1" name="status" value="1" @if ($work->status === 1) checked  @endif required>
                                         <label class="custom-control-label" for="customControlValidation1">Active</label>
                                     </div>
                                      <div class="custom-control custom-radio">
-                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation2" name="status" value="0" required>
+                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation2" name="status" value="0" @if ($work->status === 0) checked  @endif required>
                                         <label class="custom-control-label" for="customControlValidation2">Inactive</label>
                                     </div>
                                 </div>
@@ -53,18 +53,19 @@
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
+                                    <img class="img-rounded" src="{{ asset('img/' . $work->slug . '.jpg') }}" style="padding-top:  5px;max-width: 200px;">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Description</label>
                                 <div class="col-sm-9">
-                                    <textarea name="description" class="form-control ckeditor" id="editor1"></textarea>
+                                    <textarea name="description" class="form-control ckeditor" id="editor1">{!! $work->description !!}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">Start date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="start_date" class="form-control mydatepicker" placeholder="yyyy-mm-dd 00:00:00">
+                                    <input type="text" name="start_date" class="form-control mydatepicker" value="{{ $work->start_date }}" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -74,7 +75,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">End date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose" placeholder="yyyy-mm-dd 00:00:00">
+                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose" value="{{ $work->end_date }}" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -97,7 +98,7 @@
                         <div class="border-top">
                             <div class="card-body">
                                 <a href="{{ route('work.index') }}" type="submit" class="btn btn-danger">Cancel</a>
-                                <button type="submit" class="btn btn-primary">Store work</button>
+                                <button type="submit" class="btn btn-primary">Update work</button>
                             </div>
                         </div>
                     </form>
