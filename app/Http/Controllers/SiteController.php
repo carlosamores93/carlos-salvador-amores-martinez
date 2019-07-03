@@ -12,11 +12,11 @@ class SiteController extends Controller{
     }
 
     public function curriculum(){
-    	return view('front.layouts.curriculum');
+    	return view('front.curriculum');
     }
 
     public function bautizo(){
-    	return view('front.layouts.bautizo');
+    	return view('front.bautizo');
     }
 
 

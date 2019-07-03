@@ -36,7 +36,7 @@
     </div>
 
 
-    @include('front.layouts.curriculum.partials.footer')
+    @include('front.curriculum.partials.footer')
 
 
   </section>

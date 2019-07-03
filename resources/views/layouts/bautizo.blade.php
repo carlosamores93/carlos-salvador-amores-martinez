@@ -34,13 +34,7 @@
 
     <body id="page-top">
 
-        @include('front.layouts.bautizo.nav_star')
-        @include('front.layouts.bautizo.intro')
-        @include('front.layouts.bautizo.about')
-        @include('front.layouts.bautizo.skills')
-        @include('front.layouts.bautizo.work')
-        @include('front.layouts.bautizo.contact')
-
+        @yield('content')
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         <div id="preloader"></div>

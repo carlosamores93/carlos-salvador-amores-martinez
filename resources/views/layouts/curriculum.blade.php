@@ -50,12 +50,7 @@
 
     <body id="page-top">
 
-        @include('front.layouts.curriculum.nav_star')
-        @include('front.layouts.curriculum.intro')
-        @include('front.layouts.curriculum.about')
-        @include('front.layouts.curriculum.skills')
-        @include('front.layouts.curriculum.work')
-        @include('front.layouts.curriculum.contact')
+        @yield('content')
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         <div id="preloader"></div>
