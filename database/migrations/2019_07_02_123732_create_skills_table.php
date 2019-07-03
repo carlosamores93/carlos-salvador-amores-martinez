@@ -20,6 +20,7 @@ class CreateSkillsTable extends Migration
             $table->text('description')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

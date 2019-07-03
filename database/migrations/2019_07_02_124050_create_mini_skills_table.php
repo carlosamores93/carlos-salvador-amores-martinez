@@ -19,6 +19,7 @@ class CreateMiniSkillsTable extends Migration
             $table->integer('progess')->unsigned()->default(0);
             $table->boolean('status')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

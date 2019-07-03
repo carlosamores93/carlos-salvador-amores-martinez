@@ -24,7 +24,8 @@ class WorkController extends Controller
      */
     public function index()
     {
-        return view('back.work.index');
+        $works = Work::all();
+        return view('back.work.index', compact('works'));
     }
 
     /**
@@ -47,7 +48,7 @@ class WorkController extends Controller
     {
         $request['slug'] = str_slug($request->company);
         Work::create($request->all());
-        return redirect()->route('cms-home');
+        return redirect()->route('work.index');
     }
 
     /**
@@ -92,6 +93,8 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $work = Work::where('id', $id);
+        $work->delete();
+        return redirect()->route('work.index');
     }
 }

@@ -34,13 +34,13 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">Status</label>
-                                <div class="col-md-9">
+                                <div class="col-sm-9">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="customControlValidation1" name="status" value="1" required>
+                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation1" name="status" value="1" required>
                                         <label class="custom-control-label" for="customControlValidation1">Active</label>
                                     </div>
                                      <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="customControlValidation2" name="status" value="0" required>
+                                        <input type="radio" class="form-control custom-control-input" id="customControlValidation2" name="status" value="0" required>
                                         <label class="custom-control-label" for="customControlValidation2">Inactive</label>
                                     </div>
                                 </div>
@@ -54,21 +54,35 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">Start date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="start_date" class="form-control" id="datepicker-autoclose" placeholder="yyyy-mm-dd 00:00:00">
+                                    <input type="text" name="start_date" class="form-control mydatepicker" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label class="col-sm-3 text-right control-label col-form-label">End date</label>
                                 <div class="input-group col-sm-9">
-                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose__" placeholder="yyyy-mm-dd 00:00:00">
+                                    <input type="text" name="end_date" class="form-control" id="datepicker-autoclose" placeholder="yyyy-mm-dd 00:00:00">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                             </div>
+
+
+                            {{-- <div class="form-group row">
+                                <label class="col-sm-3 text-right control-label col-form-label">Test date</label>
+                                <div class="input-group col-sm-9">
+                                    <input type="date" name="test_date" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div> --}}
+
+
                         </div>
                         <div class="border-top">
                             <div class="card-body">
