@@ -15,6 +15,13 @@ class CreateWorksTable extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('company')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('job')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('status')->default(0);
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }
