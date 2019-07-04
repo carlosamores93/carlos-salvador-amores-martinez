@@ -16,7 +16,7 @@ class CreateMiniSkillsTable extends Migration
         Schema::create('mini_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->unique()->nullable();
-            $table->integer('progess')->unsigned()->default(0);
+            $table->integer('progress')->unsigned()->default(0);
             $table->boolean('status')->default(0);
             $table->timestamps();
             $table->softDeletes();

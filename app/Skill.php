@@ -9,5 +9,8 @@ class Skill extends Model
 {
 
 	use SoftDeletes;
-    //
+
+    protected $fillable = [
+        'title', 'slug', 'description', 'status'
+    ];
 }

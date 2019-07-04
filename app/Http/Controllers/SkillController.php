@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Skill;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -23,7 +24,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skills = Skill::all();
+        return view('back.skill.index', compact('skills'));
     }
 
     /**
@@ -33,7 +35,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.skill.create');
     }
 
     /**
@@ -44,7 +46,9 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request['slug'] = str_slug($request->title);
+        Skill::create($request->all());
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -66,7 +70,8 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $skill = Skill::where('id', $id)->firstOrFail();
+        return view('back.skill.edit', compact('skill'));
     }
 
     /**
@@ -78,7 +83,13 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill->title = $request->title;
+        $skill->slug = str_slug($request->title);
+        $skill->status = $request->status;
+        $skill->description = $request->description;
+        $skill->save();
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -89,6 +100,8 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill->delete();
+        return redirect()->route('skill.index');
     }
 }

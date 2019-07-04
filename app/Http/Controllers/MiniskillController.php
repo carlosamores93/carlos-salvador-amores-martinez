@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MiniSkill;
 use Illuminate\Http\Request;
 
 class MiniskillController extends Controller
@@ -21,7 +22,8 @@ class MiniskillController extends Controller
      */
     public function index()
     {
-        //
+        $miniskills = MiniSkill::all();
+        return view('back.miniskill.index', compact('miniskills'));
     }
 
     /**
@@ -31,7 +33,7 @@ class MiniskillController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.miniskill.create');
     }
 
     /**
@@ -42,7 +44,8 @@ class MiniskillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        MiniSkill::create($request->all());
+        return redirect()->route('miniskill.index');
     }
 
     /**
@@ -64,7 +67,8 @@ class MiniskillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
+        return view('back.miniskill.edit', compact('miniskill'));
     }
 
     /**
@@ -76,7 +80,12 @@ class MiniskillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
+        $miniskill->title = $request->title;
+        $miniskill->progress = $request->progress;
+        $miniskill->status = $request->status;
+        $miniskill->save();
+        return redirect()->route('miniskill.index');
     }
 
     /**
@@ -87,6 +96,8 @@ class MiniskillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
+        $miniskill->delete();
+        return redirect()->route('miniskill.index');
     }
 }

@@ -104,7 +104,7 @@ class WorkController extends Controller
      */
     public function destroy($id)
     {
-        $work = Work::where('id', $id);
+        $work = Work::where('id', $id)->firstOrFail();
         $work->delete();
         return redirect()->route('work.index');
     }

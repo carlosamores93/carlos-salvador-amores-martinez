@@ -48,13 +48,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="rtrt" class="sidebar-link">
+                            <a href="{{ route('skill.index') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-outline"></i>
                                 <span class="hide-menu"> All skills </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="rtrt" class="sidebar-link">
+                            <a href="{{ route('skill.create') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-plus"></i>
                                 <span class="hide-menu"> New skills </span>
                             </a>
@@ -69,18 +69,25 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="fgfg" class="sidebar-link">
+                            <a href="{{ route('miniskill.index') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-outline"></i>
                                 <span class="hide-menu"> All miniskills </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="fgfg" class="sidebar-link">
+                            <a href="{{ route('miniskill.create') }}" class="sidebar-link">
                                 <i class="mdi mdi-note-plus"></i>
                                 <span class="hide-menu"> New miniskills </span>
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('home') }}" aria-expanded="false">
+                        <i class="mdi mdi-chart-bar"></i>
+                        <span class="hide-menu">Go to home</span>
+                    </a>
                 </li>
 
             </ul>

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MiniSkill extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = [
+        'title', 'progress', 'status'
+    ];
 }
