@@ -20,7 +20,7 @@ class SiteController extends Controller{
         $skills = Skill::where('status', 1)->inRandomOrder()->get();
         $miniskills = MiniSkill::where('status', 1)->orderBy('progress', 'DESC')->get();
     	$user = User::where('id', 1)->first();
-        if (isset($works) && isset($skills) && isset($miniskills) && isset($user)) {
+        if ($this->existsSkillsWorksUser($works, $skills, $miniskills, $user)) {
            return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
         }else{
     	   return view('front.curriculum');
@@ -29,6 +29,10 @@ class SiteController extends Controller{
 
     public function bautizo(){
     	return view('front.bautizo');
+    }
+
+    private function existsSkillsWorksUser($works, $skills, $miniskills, $user){
+        return isset($works) && ($works->count() > 0) && isset($skills) && ($skills->count() > 0) && isset($miniskills) && ($miniskills->count() > 0) && isset($user);
     }
 
 

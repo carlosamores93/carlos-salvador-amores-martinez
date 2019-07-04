@@ -17,7 +17,7 @@
                     </p> --}}
                     <ul class="list-ico">
                       <li><span class="ion-ios-location"></span> Moratalaz, Madrid, España</li>
-                      <li><span class="ion-ios-telephone"></span> (0034) 628 60 60 93</li>
+                      <li><span class="ion-ios-telephone"></span><a href="tel:628606093">(0034) 628 60 60 93</a></li>
                       <li><span class="ion-email"></span> <a href="mailto:amorescarlos93@hotmail.com">amorescarlos93@hotmail.com</a></li>
                     </ul>
                   </div>

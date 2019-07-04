@@ -13,22 +13,40 @@
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
-                      <p><span class="title-s">Nombre: </span> <span>{{ $user->name }} {{ $user->lastname }}</span></p>
+                      <p><span class="title-s">Nombre: </span> <span>Carlos Amores</span></p>
                       <p><span class="title-s">Puesto: </span> <span>Programador backend</span></p>
                       <p><span class="title-s">Email: </span> <span> <a href="mailto:amorescarlos93@hotmail.com">amorescarlos93@hotmail.com</a> </span></p>
-                      <p><span class="title-s">Teléfono: </span> <span><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></span></p>
+                      <p><span class="title-s">Teléfono: </span> <span><a href="tel:628606093">628 60 60 93</a></span></p>
                     </div>
                   </div>
                 </div>
                 <div class="skill-mf">
                     {{-- <p class="title-s">Skills</p> --}}
-                    @foreach ($miniskills as $ms)
-                        <span>{{ $ms->title }}</span> <span class="pull-right">{{ $ms->progress }}%</span>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: {{ $ms->progress }}%;" aria-valuenow="{{ $ms->progress }}" aria-valuemin="0"
-                          aria-valuemax="100"></div>
-                        </div>
-                    @endforeach
+                    <span>Laravel</span> <span class="pull-right">85%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                    <span>LAMP</span> <span class="pull-right">80%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                    <span>Java</span> <span class="pull-right">70%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                    <span>C/C++</span> <span class="pull-right">50%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                    <span>JS, HTML, CSS, SASS</span> <span class="pull-right">40%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
                 </div>
               </div>
 
@@ -39,9 +57,7 @@
                       About me
                     </h5>
                   </div>
-
-                  {!! $user->description !!}
-                  {{-- <p class="lead">
+                  <p class="lead">
                     <span class="title-s">Primaria:</span> de 3º a 6º en el Colegio Dulce Nombre de Jesús, barrio Salamanca, Madrid.
                   </p>
                   <p class="lead">
@@ -52,9 +68,7 @@
                   </p>
                   <p class="lead">
                     <span class="title-s">Grado Ing Computadores:</span> en la Facultad de Infórmatica, Universidad Complutense de Madrid.
-                  </p> --}}
-
-
+                  </p>
                 </div>
               </div>
             </div>

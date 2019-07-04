@@ -7,7 +7,6 @@
                 <h1 class="intro-title mb-4">Hello, I'm Carlos Amores</h1>
                 <p class="intro-subtitle">
                     <span class="text-slider-items">
-                        I work in iAhorro.com,
                         Graduated in Computer Engineering,
                         Facultad de Informática,
                         Universidad Complutense de Madrid,
