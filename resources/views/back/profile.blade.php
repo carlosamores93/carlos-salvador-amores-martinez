@@ -115,10 +115,21 @@
                                 <div class="col-md-9">
                                     <div class="custom-file">
                                         <input type="file" name="file" class="custom-file-input" id="validatedCustomFile">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose photo profile...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
                                     <img class="img-rounded" src="{{ asset('img/' . str_slug(Auth::user()->name) . '-' . str_slug(Auth::user()->lastname) . '.jpg') }}" style="padding-top:  5px;max-width: 200px;">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 text-right control-label col-form-label">CV</label>
+                                <div class="col-md-9">
+                                    <div class="custom-file">
+                                        <input type="file" name="cv" class="custom-file-input" id="validatedCustomFile">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose cv...</label>
+                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    </div>
                                 </div>
                             </div>
 
