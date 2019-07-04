@@ -16,15 +16,16 @@
                    {{--  <p class="lead">
                     </p> --}}
                     <ul class="list-ico">
-                      <li><span class="ion-ios-location"></span> Moratalaz, Madrid, España</li>
-                      <li><span class="ion-ios-telephone"></span> (0034) 628 60 60 93</li>
-                      <li><span class="ion-email"></span> <a href="mailto:amorescarlos93@hotmail.com">amorescarlos93@hotmail.com</a></li>
+                      <li><span class="ion-ios-location"></span>{{ $user->address }}</li>
+                      <li><span class="ion-ios-telephone"></span><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></li>
+                      <li><span class="ion-email"></span> <a href="mailto:{{ $user->email }}">{{ $user->email }}</a></li>
                     </ul>
                   </div>
                   <div class="socials">
                     <ul>
-                      <li><a href="https://github.com/carlosamores93"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
-                      <li><a href="https://es.linkedin.com/in/carlos-salvador-amores-mart%C3%ADnez-185a66147"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
+                      <li><a href="{{ $user->github }}"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
+                      <li><a href="{{ $user->gitlab }}"><span class="ico-circle"><i class="ion-social-gitlab"></i></span></a></li>
+                      <li><a href="{{ $user->linkedin }}"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
                     </ul>
                   </div>
                 </div>
@@ -36,7 +37,30 @@
     </div>
 
 
-    @include('front.curriculum.partials.footer')
+      <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
+              <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                -->
+                Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
+
+              </div>
+              <div class="credits">
+                Code: <strong><a href="https://gitlab.com/carlosamores93/carlos-salvador-amores-martinez" target="_blank">Gitlab Carlos Amores</a></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
   </section>

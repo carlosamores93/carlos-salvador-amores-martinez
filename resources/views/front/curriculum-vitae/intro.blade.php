@@ -3,22 +3,20 @@
         <div class="intro-content display-table">
             <div class="table-cell">
             <div class="container">
-                {{-- <p class="display-6 color-d">Hello, world!</p> --}}
-                <h1 class="intro-title mb-4">Hello, I'm Carlos Amores</h1>
+                <h1 class="intro-title mb-4">{{ $user->name }} {{ $user->lastname }}</h1>
                 <p class="intro-subtitle">
                     <span class="text-slider-items">
-                        I work in iAhorro.com,
-                        Graduated in Computer Engineering,
-                        Facultad de Informática,
-                        Universidad Complutense de Madrid,
+                        {{ $user->career }},
+                        {{ $user->faculty }},
+                        {{ $user->university }},
                     </span>
                     <strong class="text-slider">
-                        Backend Developer
+                        {{ $user->profession }}
                     </strong>
                 </p>
                 {{-- <p class="pt-3">
                     <a class="btn btn-primary btn js-scroll px-4" href="">
-                        Descargar curriculum vitae
+                        Download cv
                     </a>
                 </p> --}}
             </div>
