@@ -12,16 +12,15 @@
 */
 
 Route::get('/', 'SiteController@home')->name('home');
-Route::get('curriculum-vitae', 'SiteController@curriculum')->name('curriculum');
-//Route::get('bautizo-camila', 'SiteController@bautizo')->name('bautizo');
+Route::get('curriculum-vitae-carlos-amores', 'SiteController@curriculum')->name('curriculum');
 
 Auth::routes();
 
-Route::get('/admin', 'CmsController@home')->name('cms-home');
-
-// Profile
-Route::get('/admin/profile', 'CmsController@profile')->name('cms-profile');
-Route::post('/admin/profile', 'CmsController@updateProfile')->name('cms-profile-update');
-Route::resource('admin/work', 'WorkController');
-Route::resource('admin/skill', 'SkillController');
-Route::resource('admin/miniskill', 'MiniskillController');
+Route::group(['prefix' => 'admin'], function () {
+	Route::get('/', 'CmsController@home')->name('cms-home');
+	Route::get('/profile', 'CmsController@profile')->name('cms-profile');
+	Route::post('/profile', 'CmsController@updateProfile')->name('cms-profile-update');
+	Route::resource('/work', 'WorkController');
+	Route::resource('/skill', 'SkillController');
+	Route::resource('/miniskill', 'MiniskillController');
+});
