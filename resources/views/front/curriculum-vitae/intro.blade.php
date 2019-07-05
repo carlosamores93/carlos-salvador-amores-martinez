@@ -14,11 +14,6 @@
                         {{ $user->profession }}
                     </strong>
                 </p>
-                {{-- <p class="pt-3">
-                    <a class="btn btn-primary btn js-scroll px-4" href="">
-                        Download cv
-                    </a>
-                </p> --}}
             </div>
         </div>
     </div>

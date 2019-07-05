@@ -14,16 +14,16 @@
             <a class="nav-link js-scroll active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
+            <a class="nav-link js-scroll" href="#about">Sobre mi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">Skills</a>
+            <a class="nav-link js-scroll" href="#service">Habilidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Works</a>
+            <a class="nav-link js-scroll" href="#work">Trabajos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact</a>
+            <a class="nav-link js-scroll" href="#contact">Contacto</a>
           </li>
 
             @guest

@@ -6,6 +6,7 @@ use App\MiniSkill;
 use App\Skill;
 use App\User;
 use App\Work;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller{
@@ -21,7 +22,11 @@ class SiteController extends Controller{
         $miniskills = MiniSkill::where('status', 1)->orderBy('progress', 'DESC')->get();
     	$user = User::where('id', 1)->first();
         if ($this->existsSkillsWorksUser($works, $skills, $miniskills, $user)) {
-           return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
+            foreach ($works as $w) {
+                $w->start_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->start_date)->locale('es')->isoFormat('MMMM YYYY'));
+                $w->end_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->end_date)->locale('es')->isoFormat('MMMM YYYY'));
+            }
+            return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
         }else{
     	   return view('front.curriculum');
         }
