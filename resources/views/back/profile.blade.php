@@ -92,7 +92,7 @@
                             <div class="form-group row">
                                 <label for="email1" class="col-sm-3 text-right control-label col-form-label">Gitlab</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name='gitluab' class="form-control" id="email1" placeholder="Gitlab" value="{{ Auth::user()->gitluab }}">
+                                    <input type="text" name='gitlab' class="form-control" id="email1" placeholder="Gitlab" value="{{ Auth::user()->gitluab }}">
                                 </div>
                             </div>
 
