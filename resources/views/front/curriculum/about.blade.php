@@ -67,7 +67,7 @@
                     <span class="title-s">Bachillerato</span> de 1º a 2º en el IES Felipe II , barrio Moratalaz, Madrid.
                   </p>
                   <p class="lead">
-                    <span class="title-s">Grado Ing Computadores:</span> en la Facultad de Infórmatica, Universidad Complutense de Madrid.
+                    <span class="title-s">Grado Ing Computadores:</span> en la Facultad de Informática, Universidad Complutense de Madrid.
                   </p>
                 </div>
               </div>
