@@ -117,7 +117,7 @@ class WorkController extends Controller
                 $request->file('file')->move(base_path() . '/public/img/', $image_name);
             }else{
                 $request->file('file')->move(base_path() . '/public_html/img/', $image_name);
-                $request->file('file')->move(base_path() . '/public/img/', $image_name);
+                //$request->file('file')->move(base_path() . '/public/img/', $image_name);
             }
         }
     }

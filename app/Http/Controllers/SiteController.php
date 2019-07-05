@@ -23,8 +23,14 @@ class SiteController extends Controller{
     	$user = User::where('id', 1)->first();
         if ($this->existsSkillsWorksUser($works, $skills, $miniskills, $user)) {
             foreach ($works as $w) {
-                $w->start_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->start_date)->locale('es')->isoFormat('MMMM YYYY'));
-                $w->end_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->end_date)->locale('es')->isoFormat('MMMM YYYY'));
+                if(isset($w->start_date)) {
+                    $w->start_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->start_date)->locale('es')->isoFormat('MMMM YYYY'));
+                }
+                if(isset($w->end_date)) {
+                    $w->end_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->end_date)->locale('es')->isoFormat('MMMM YYYY'));
+                }else{
+                    $w->end_date = 'Actualmente';
+                }
             }
             return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
         }else{
