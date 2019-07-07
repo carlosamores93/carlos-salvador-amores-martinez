@@ -26,12 +26,11 @@
         <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="44a44001-0eb9-4ff3-817e-f2118aee54ae" type="text/javascript" async></script>
 
         {{-- Global site tag (gtag.js) - Google Analytics --}}
-        <script type="text/plain" data-cookieconsent="marketing" async src="https://www.googletagmanager.com/gtag/js?id=UA-141909368-1"></script>
-        <script type="text/plain" data-cookieconsent="statistics">
+        <script data-cookieconsent="marketing" async src="https://www.googletagmanager.com/gtag/js?id=UA-141909368-1"></script>
+        <script data-cookieconsent="statistics">
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'UA-141909368-1');
         </script>
 
