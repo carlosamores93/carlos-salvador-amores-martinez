@@ -13,10 +13,19 @@ const mix = require('laravel-mix');
 
 /*mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');*/
+if (mix.inProduction()) {
+	mix.copyDirectory('resources/curriculum', 'public_html/curriculum');
+	mix.copyDirectory('resources/cms', 'public_html/cms');
+	mix.copyDirectory('resources/img', 'public_html/img');
+}else{
+	mix.copyDirectory('resources/curriculum', 'public/curriculum');
+	mix.copyDirectory('resources/cms', 'public/cms');
+	mix.copyDirectory('resources/img', 'public/img');
+}
 
-mix.copyDirectory('resources/curriculum', 'public/curriculum');
+/*mix.copyDirectory('resources/curriculum', 'public/curriculum');
 mix.copyDirectory('resources/cms', 'public/cms');
-mix.copyDirectory('resources/img', 'public/img');
+mix.copyDirectory('resources/img', 'public/img');*/
 
 /*mix.styles([
 	'resources/curriculum/lib/bootstrap/css/bootstrap.min.css',

@@ -23,7 +23,10 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="{{ asset('cms/assets/images/logo.png') }}" alt="logo" /></span>
+                        <span class="db">
+                            <img src="{{ asset('cms/assets/images/logo-icon.png') }}"/>
+                            <img src="{{ asset('cms/assets/images/logo.png') }}"/>
+                        </span>
                     </div>
 
                     <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('login') }}">

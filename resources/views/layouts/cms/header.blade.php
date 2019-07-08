@@ -4,10 +4,10 @@
             <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
             <a class="navbar-brand" href="{{ route('cms-home') }}">
                 <b class="logo-icon p-l-10">
-                    <img src="{{ asset('cms/assets/images/logo-icon.png') }}"alt="homepage" class="light-logo" />
+                    <img src="{{ asset('cms/assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
                 </b>
                 <span class="logo-text">
-                     <img src="{{ asset('cms/assets/images/logo-text.png') }}"alt="homepage" class="light-logo" />
+                     <img src="{{ asset('cms/assets/images/logo-text.png') }}" alt="homepage" class="light-logo" style="width: 180px;"/>
 
                 </span>
             </a>
