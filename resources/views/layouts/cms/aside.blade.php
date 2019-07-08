@@ -13,7 +13,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('cms-profile') }}" aria-expanded="false">
-                        <i class="mdi mdi-chart-bar"></i>
+                        <i class="mdi mdi-face-profile"></i>
                         <span class="hide-menu">View profile</span>
                     </a>
                 </li>
@@ -21,7 +21,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="mdi mdi-receipt"></i>
+                        <i class="mdi mdi-laptop"></i>
                         <span class="hide-menu">Works </span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
@@ -43,7 +43,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="mdi mdi-receipt"></i>
+                        <i class="mdi mdi-bookmark-plus"></i>
                         <span class="hide-menu">Skills </span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
@@ -64,7 +64,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="mdi mdi-receipt"></i>
+                        <i class="mdi mdi-bookmark-plus"></i>
                         <span class="hide-menu">Miniskills </span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
@@ -85,7 +85,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('home') }}" aria-expanded="false">
-                        <i class="mdi mdi-chart-bar"></i>
+                        <i class="mdi mdi-google-chrome"></i>
                         <span class="hide-menu">Go to home</span>
                     </a>
                 </li>
