@@ -7,7 +7,7 @@
                     <img src="{{ asset('cms/assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
                 </b>
                 <span class="logo-text">
-                     <img src="{{ asset('cms/assets/images/logo-text.png') }}" alt="homepage" class="light-logo" style="width: 180px;"/>
+                     <img src="{{ asset('cms/assets/images/logo-text-cms.png') }}" alt="homepage" class="light-logo" style="width: 180px;"/>
 
                 </span>
             </a>
