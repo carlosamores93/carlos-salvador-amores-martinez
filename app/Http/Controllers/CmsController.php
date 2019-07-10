@@ -57,7 +57,7 @@ class CmsController extends Controller
                 $request->file('cv')->move(base_path() . '/public/', $image_name);
             }else{
                 $request->file('cv')->move(base_path() . '/public_html/', $image_name);
-                //$request->file('cv')->move(base_path() . '/public/', $image_name);
+                $request->file('cv')->move(base_path() . '/public/', $image_name);
             }
         }
     }
