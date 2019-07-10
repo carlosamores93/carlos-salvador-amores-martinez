@@ -14,6 +14,13 @@
                         {{ $user->profession }}
                     </strong>
                 </p>
+                @if (file_exists(public_path('cv-' . str_slug(Auth::user()->name) . '-' . str_slug(Auth::user()->lastname) . '.pdf')))
+                <p class="pt-3">
+                    <a class="btn btn-primary btn js-scroll px-4" href="{{ 'cv-' . str_slug(Auth::user()->name) . '-' . str_slug(Auth::user()->lastname) . '.pdf' }}" target="_blank">
+                        Ver curriculum vitae pdf
+                    </a>
+                </p>
+                @endif
             </div>
         </div>
     </div>

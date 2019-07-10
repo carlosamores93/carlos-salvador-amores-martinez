@@ -52,12 +52,12 @@ class CmsController extends Controller
     private function storeCurriculumVitae(Request $request)
     {
         if($request->file('cv')){
-            $image_name = 'cv-' . str_slug($request->name) . '-'. str_slug($request->lastname) .'.' . $request->file('file')->getClientOriginalExtension();
+            $image_name = 'cv-' . str_slug($request->name) . '-'. str_slug($request->lastname) .'.' . $request->file('cv')->getClientOriginalExtension();
             if (env('APP_ENV') == 'local') {
-                $request->file('file')->move(base_path() . '/public/', $image_name);
+                $request->file('cv')->move(base_path() . '/public/', $image_name);
             }else{
-                $request->file('file')->move(base_path() . '/public_html/', $image_name);
-                //$request->file('file')->move(base_path() . '/public/', $image_name);
+                $request->file('cv')->move(base_path() . '/public_html/', $image_name);
+                //$request->file('cv')->move(base_path() . '/public/', $image_name);
             }
         }
     }

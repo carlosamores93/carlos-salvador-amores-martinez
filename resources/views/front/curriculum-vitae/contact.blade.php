@@ -30,17 +30,17 @@
                                 <ul>
                                     @if(isset($user->github))
                                         <li>
-                                            <a href="{{ $user->github }}"><span class="ico-circle"><i class="ion-social-github"></i></span></a>
+                                            <a href="{{ $user->github }}" target="_blank"><span class="ico-circle"><i class="ion-social-github"></i></span></a>
                                         </li>
                                     @endif
                                     @if(isset($user->gitlab))
                                         <li>
-                                            <a href="{{ $user->gitlab }}"><span class="ico-circle"><i class="ion-social-gitlab"></i></span></a>
+                                            <a href="{{ $user->gitlab }}" target="_blank"><span class="ico-circle"><i class="ion-social-gitlab"></i></span></a>
                                         </li>
                                     @endif
                                     @if(isset($user->linkedin))
                                         <li>
-                                            <a href="{{ $user->linkedin }}"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a>
+                                            <a href="{{ $user->linkedin }}" target="_blank"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a>
                                         </li>
                                     @endif
                                 </ul>

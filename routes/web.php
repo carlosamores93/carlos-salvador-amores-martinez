@@ -13,6 +13,9 @@
 
 Route::get('/', 'SiteController@home')->name('home');
 Route::get('curriculum-vitae-carlos-amores', 'SiteController@curriculum')->name('curriculum');
+Route::get('curriculum-{name}', function ($name) {
+	return redirect(route('curriculum'), 301);
+})->where('name', '[A-Za-z]+');
 
 Auth::routes();
 
