@@ -14,6 +14,21 @@
                         {{ $user->profession }}
                     </strong>
                 </p>
+                @if (env('APP_ENV') == 'local')
+                    <p class="pt-3">
+                        <a class="btn btn-primary btn js-scroll px-4" href="{{ 'cv-' . str_slug($user->name) . '-' . str_slug($user->lastname) . '.pdf' }}" target="_blank">
+                            Ver curriculum vitae pdf
+                        </a>
+                    </p>
+                @else
+                    @if (file_exists(base_path('public_html/cv-' . str_slug($user->name) . '-' . str_slug($user->lastname) . '.pdf')))
+                        <p class="pt-3">
+                            <a class="btn btn-primary btn js-scroll px-4" href="{{ 'cv-' . str_slug($user->name) . '-' . str_slug($user->lastname) . '.pdf' }}" target="_blank">
+                                Ver curriculum vitae pdf
+                            </a>
+                        </p>
+                    @endif
+                @endif
             </div>
         </div>
     </div>

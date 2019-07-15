@@ -130,6 +130,13 @@
                                         <label class="custom-file-label" for="validatedCustomFile">Choose cv...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
+                                    @if (file_exists(public_path('cv-' . str_slug(Auth::user()->name) . '-' . str_slug(Auth::user()->lastname) . '.pdf')))
+                                        <div style="margin-top: 5px;">
+                                            <a class="btn btn-primary btn js-scroll px-4" href="{{ 'cv-' . str_slug(Auth::user()->name) . '-' . str_slug(Auth::user()->lastname) . '.pdf' }}" target="_blank">
+                                                Ver curriculum vitae pdf
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
