@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="copyright-box">
-                        <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
+                        <p class="copyright">&copy; Copyright <a href="https://bootstrapmade.com/demo/DevFolio/" target="_blank"><strong>DevFolio</strong></a>. All Rights Reserved</p>
                         <div class="credits">
                             Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
                         </div>
