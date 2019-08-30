@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ class CmsController extends Controller
         Auth::user()->update($request->all());
         $this->storeImgForProduct($request);
         $this->storeCurriculumVitae($request);
-        return redirect()->back();
+        return redirect()->back()->with('primary', 'Profile updated correctly');
     }
 
     private function storeImgForProduct(Request $request)
@@ -57,7 +58,6 @@ class CmsController extends Controller
                 $request->file('cv')->move(base_path() . '/public/', $image_name);
             }else{
                 $request->file('cv')->move(base_path() . '/public_html/', $image_name);
-                //$request->file('cv')->move(base_path() . '/public/', $image_name);
             }
         }
     }

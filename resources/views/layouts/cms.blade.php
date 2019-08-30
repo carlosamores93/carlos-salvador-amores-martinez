@@ -20,6 +20,7 @@
                 @include('layouts.cms.header')
                 @include('layouts.cms.aside')
                 <div class="page-wrapper">
+                    @include('layouts.cms.message')
                     @yield('content')
                     <footer class="footer text-center">
                         All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.

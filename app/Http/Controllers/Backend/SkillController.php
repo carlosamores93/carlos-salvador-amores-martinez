@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\MiniSkill;
+use App\Http\Controllers\Controller;
+use App\Skill;
 use Illuminate\Http\Request;
 
-class MiniskillController extends Controller
+class SkillController extends Controller
 {
-    // php artisan make:controller MiniskillController --resource
-    // Route::resource('miniskill', 'MiniskillController');
+
+    // php artisan make:controller SkillController --resource
+    // Route::resource('skill', 'SkillController');
 
     public function __construct()
     {
         $this->middleware('auth');
     }
+
 
     /**
      * Display a listing of the resource.
@@ -22,8 +25,8 @@ class MiniskillController extends Controller
      */
     public function index()
     {
-        $miniskills = MiniSkill::all();
-        return view('back.miniskill.index', compact('miniskills'));
+        $skills = Skill::all();
+        return view('back.skill.index', compact('skills'));
     }
 
     /**
@@ -33,7 +36,7 @@ class MiniskillController extends Controller
      */
     public function create()
     {
-        return view('back.miniskill.create');
+        return view('back.skill.create');
     }
 
     /**
@@ -44,8 +47,9 @@ class MiniskillController extends Controller
      */
     public function store(Request $request)
     {
-        MiniSkill::create($request->all());
-        return redirect()->route('miniskill.index');
+        $request['slug'] = str_slug($request->title);
+        Skill::create($request->all());
+        return redirect()->route('skill.index')->with('success', 'Skill created successfully');
     }
 
     /**
@@ -67,8 +71,8 @@ class MiniskillController extends Controller
      */
     public function edit($id)
     {
-        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
-        return view('back.miniskill.edit', compact('miniskill'));
+        $skill = Skill::where('id', $id)->firstOrFail();
+        return view('back.skill.edit', compact('skill'));
     }
 
     /**
@@ -80,12 +84,13 @@ class MiniskillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
-        $miniskill->title = $request->title;
-        $miniskill->progress = $request->progress;
-        $miniskill->status = $request->status;
-        $miniskill->save();
-        return redirect()->route('miniskill.index');
+        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill->title = $request->title;
+        $skill->slug = str_slug($request->title);
+        $skill->status = $request->status;
+        $skill->description = $request->description;
+        $skill->save();
+        return redirect()->route('skill.index')->with('primary', 'Skill updated correctly');
     }
 
     /**
@@ -96,8 +101,8 @@ class MiniskillController extends Controller
      */
     public function destroy($id)
     {
-        $miniskill = MiniSkill::where('id', $id)->firstOrFail();
-        $miniskill->delete();
-        return redirect()->route('miniskill.index');
+        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill->delete();
+        return redirect()->route('skill.index')->with('dark', 'Skill deleted successfully');
     }
 }

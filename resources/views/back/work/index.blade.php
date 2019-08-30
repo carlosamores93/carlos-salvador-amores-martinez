@@ -48,7 +48,7 @@
 	                                        <td>{{ $w->end_date }}</td>
 	                                        <td>
 	                                        	<a class="btn btn-success" href="{{ route('work.edit', ['work' => $w->id]) }}">Edit</a>
-	                                        	<form method="POST" action="{{ route('work.destroy', ['work' => $w->id]) }}">
+	                                        	<form method="POST" onclick="return confirm('Do you want delete this item? Are you sure?')" action="{{ route('work.destroy', ['work' => $w->id]) }}">
 													@csrf
 													@method('DELETE')
 	                                        		<button type="submit" class="btn btn-danger">Delete</button>

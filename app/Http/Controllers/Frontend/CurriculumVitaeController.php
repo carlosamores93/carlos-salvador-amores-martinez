@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
 use App\MiniSkill;
 use App\Skill;
 use App\User;
@@ -9,14 +10,11 @@ use App\Work;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class SiteController extends Controller{
+class CurriculumVitaeController extends Controller{
 
 
-    public function home(){
-    	return redirect(route('curriculum'));
-    }
 
-    public function curriculum(){
+    public function index(){
         $works = Work::where('status', 1)->orderBy('start_date', 'ASC')->get();
         $skills = Skill::where('status', 1)->inRandomOrder()->get();
         $miniskills = MiniSkill::where('status', 1)->orderBy('progress', 'DESC')->get();
@@ -36,10 +34,6 @@ class SiteController extends Controller{
         }else{
     	   return view('front.curriculum');
         }
-    }
-
-    public function bautizo(){
-    	return view('front.bautizo');
     }
 
     private function existsSkillsWorksUser($works, $skills, $miniskills, $user){

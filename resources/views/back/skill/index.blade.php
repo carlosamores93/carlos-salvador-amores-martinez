@@ -42,7 +42,7 @@
 	                                        <td>{!! $s->description !!}</td>
 	                                        <td>
 	                                        	<a class="btn btn-success" href="{{ route('skill.edit', ['skill' => $s->id]) }}">Edit</a>
-	                                        	<form method="POST" action="{{ route('skill.destroy', ['skill' => $s->id]) }}">
+	                                        	<form method="POST" onclick="return confirm('Do you want delete this item? Are you sure?')" action="{{ route('skill.destroy', ['skill' => $s->id]) }}">
 													@csrf
 													@method('DELETE')
 	                                        		<button type="submit" class="btn btn-danger">Delete</button>

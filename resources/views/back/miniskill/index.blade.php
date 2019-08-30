@@ -46,7 +46,7 @@
                                             </td>
 	                                        <td>
 	                                        	<a class="btn btn-success" href="{{ route('miniskill.edit', ['miniskill' => $ms->id]) }}">Edit</a>
-	                                        	<form method="POST" action="{{ route('miniskill.destroy', ['miniskill' => $ms->id]) }}">
+	                                        	<form method="POST" onclick="return confirm('Do you want delete this item? Are you sure?')" action="{{ route('miniskill.destroy', ['miniskill' => $ms->id]) }}">
 													@csrf
 													@method('DELETE')
 	                                        		<button type="submit" class="btn btn-danger">Delete</button>

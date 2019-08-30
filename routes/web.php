@@ -11,19 +11,28 @@
 |
 */
 
-Route::get('/', 'SiteController@home')->name('home');
-Route::get('curriculum-vitae-carlos-amores', 'SiteController@curriculum')->name('curriculum');
-Route::get('curriculum-{name}', function ($name) {
-	return redirect(route('curriculum'), 301);
-})->where('name', '[A-Za-z]+');
+Route::namespace('Frontend')->group(function () {
+	Route::get('/', 'SiteController@home')->name('home');
+	// Vistas para mi cv
+	Route::get('curriculum-vitae-carlos-amores', 'CurriculumVitaeController@index')->name('curriculum');
+	Route::get('curriculum-{name}', function ($name) {
+		return redirect(route('curriculum'), 301);
+	})->where('name', '[A-Za-z]+');
+});
 
+// Authentication
 Auth::routes();
 
-Route::group(['prefix' => 'admin'], function () {
-	Route::get('/', 'CmsController@home')->name('cms-home');
-	Route::get('/profile', 'CmsController@profile')->name('cms-profile');
-	Route::post('/profile', 'CmsController@updateProfile')->name('cms-profile-update');
-	Route::resource('/work', 'WorkController');
-	Route::resource('/skill', 'SkillController');
-	Route::resource('/miniskill', 'MiniskillController');
+
+Route::namespace('Backend')->group(function () {
+	Route::prefix('admin')->group(function () {
+		Route::get('/', 'CmsController@home')->name('cms-home');
+		Route::get('/profile', 'CmsController@profile')->name('cms-profile');
+		Route::post('/profile', 'CmsController@updateProfile')->name('cms-profile-update');
+		Route::resource('/work', 'WorkController');
+		Route::resource('/skill', 'SkillController');
+		Route::resource('/miniskill', 'MiniskillController');
+	});
 });
+/*Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
+});*/

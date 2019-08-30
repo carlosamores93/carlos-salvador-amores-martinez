@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Work;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,7 @@ class WorkController extends Controller
         $request['slug'] = str_slug($request->company);
         Work::create($request->all());
         $this->storeImgForProduct($request);
-        return redirect()->route('work.index');
+        return redirect()->route('work.index')->with('success', 'Work created successfully');
     }
 
     /**
@@ -93,7 +94,7 @@ class WorkController extends Controller
         $work->end_date = $request->end_date;
         $work->save();
         $this->storeImgForProduct($request);
-        return redirect()->route('work.index');
+        return redirect()->route('work.index')->with('primary', 'Work updated correctly');
     }
 
     /**
@@ -106,7 +107,7 @@ class WorkController extends Controller
     {
         $work = Work::where('id', $id)->firstOrFail();
         $work->delete();
-        return redirect()->route('work.index');
+        return redirect()->route('work.index')->with('dark', 'Work deleted successfully');
     }
 
     private function storeImgForProduct(Request $request)
@@ -117,7 +118,6 @@ class WorkController extends Controller
                 $request->file('file')->move(base_path() . '/public/img/', $image_name);
             }else{
                 $request->file('file')->move(base_path() . '/public_html/img/', $image_name);
-                //$request->file('file')->move(base_path() . '/public/img/', $image_name);
             }
         }
     }
