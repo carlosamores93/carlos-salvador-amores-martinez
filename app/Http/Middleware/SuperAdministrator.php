@@ -18,7 +18,7 @@ class SuperAdministrator
     public function handle($request, Closure $next)
     {
         if (Auth::user()->id !== 1) {
-            return redirect(route('klk'));
+            return redirect(route('admin.home'));
         }
         return $next($request);
     }

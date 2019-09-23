@@ -25,7 +25,7 @@ Auth::routes();
 
 
 Route::namespace('Backend')->group(function () {
-	Route::prefix('super-admin')->group(function () {
+	Route::prefix('admin-cv')->group(function () {
 		Route::group(['middleware' => ['auth', 'superadmin']], function () {
 			Route::get('/', 'CmsController@home')->name('cms-home');
 			Route::get('/profile', 'CmsController@profile')->name('cms-profile');
@@ -40,5 +40,5 @@ Route::namespace('Backend')->group(function () {
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth']], function () {
 	Route::get('/', function(){
 		return view('home');
-	})->name('klk');
+	})->name('admin.home');
 });
