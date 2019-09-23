@@ -25,14 +25,20 @@ Auth::routes();
 
 
 Route::namespace('Backend')->group(function () {
-	Route::prefix('admin')->group(function () {
-		Route::get('/', 'CmsController@home')->name('cms-home');
-		Route::get('/profile', 'CmsController@profile')->name('cms-profile');
-		Route::post('/profile', 'CmsController@updateProfile')->name('cms-profile-update');
-		Route::resource('/work', 'WorkController');
-		Route::resource('/skill', 'SkillController');
-		Route::resource('/miniskill', 'MiniskillController');
+	Route::prefix('super-admin')->group(function () {
+		Route::group(['middleware' => ['auth', 'superadmin']], function () {
+			Route::get('/', 'CmsController@home')->name('cms-home');
+			Route::get('/profile', 'CmsController@profile')->name('cms-profile');
+			Route::post('/profile', 'CmsController@updateProfile')->name('cms-profile-update');
+			Route::resource('/work', 'WorkController');
+			Route::resource('/skill', 'SkillController');
+			Route::resource('/miniskill', 'MiniskillController');
+		});
 	});
 });
-/*Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
-});*/
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth']], function () {
+	Route::get('/', function(){
+		return view('home');
+	})->name('klk');
+});
