@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Notice;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
 
 class Recordatorios extends Command
 {
@@ -13,7 +14,7 @@ class Recordatorios extends Command
      *
      * @var string
      */
-    protected $signature = 'carlosamores';
+    protected $signature = 'notices';
 
     /**
      * The console command description.
@@ -39,6 +40,48 @@ class Recordatorios extends Command
      */
     public function handle()
     {
+
+        $notices = Notice::where('status', 1)->get();
+        foreach ($notices as $key => $notice) {
+            if (Carbon::parse($notice->date)->month == Carbon::today()->month && Carbon::parse($notice->date)->day == Carbon::today()->day) {
+                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                $subject = $notice->subject . ' de ' . $notice->name;
+                $mensaje = $notice->message . '<p>' . $notice->name . ' cumple <b>' . $edad . '</b> años.</p>';
+                if ($notice->repeat == 0) {
+                    $notice->status = 0;
+                    $notice->save();
+                    $notice->delete();
+                }
+                $this->enviarCorreoRecordatorio($subject, $mensaje);
+            }
+            // En una semana
+            if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(7)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(7)->day) {
+                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                $subject = $notice->subject . ' de ' . $notice->name;
+                $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años en una semana</p>';
+                $this->enviarCorreoRecordatorio($subject, $mensaje);
+            }
+            // Al dia siguiente
+            if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(1)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(1)->day) {
+                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                $subject = $notice->subject . ' de ' . $notice->name;
+                $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años MAÑANA</p>';
+                $this->enviarCorreoRecordatorio($subject, $mensaje);
+            }
+
+        }
+
+
+    }
+
+    private function enviarCorreoRecordatorio($asunto, $mensaje){
+        mail('carlos.amores@iahorro.com', $asunto, $mensaje);
+        mail('amorescarlos93@hotmail.com', $asunto, $mensaje);
+    }
+
+
+
+    function test(){
         $carlos = array('Y' => 1993, 'M' => 3, 'D' => 1);
         $msg = $this->recordarCumpleaños('Carlos Amores', $carlos);
         $this->enviarCorreo($msg);
@@ -105,43 +148,17 @@ class Recordatorios extends Command
         $papa = array('Y' => 1967, 'M' => 8, 'D' => 2);
         $msg = $this->recordarCumpleaños('Papaaaaaaa', $papa);
         $this->enviarCorreo($msg);
-	$vod = array('Y' => 2019, 'M' => 2, 'D' => 1);
+    $vod = array('Y' => 2019, 'M' => 2, 'D' => 1);
         $msg = $this->recordarCumpleaños('VODAFONE FIN CONTRATO 8 FEBRERO 2020', $vod);
         $this->enviarCorreo($msg);
-	$vod = array('Y' => 2019, 'M' => 2, 'D' => 5);
+    $vod = array('Y' => 2019, 'M' => 2, 'D' => 5);
         $msg = $this->recordarCumpleaños('VODAFONE FIN CONTRATO 8 FEBRERO 2020', $vod);
         $this->enviarCorreo($msg);
-	$vod = array('Y' => 2019, 'M' => 2, 'D' => 8);
+    $vod = array('Y' => 2019, 'M' => 2, 'D' => 8);
         $msg = $this->recordarCumpleaños('VODAFONE FIN CONTRATO 8 FEBRERO 2020', $vod);
         $this->enviarCorreo($msg);
-
-
-
-	//$asunto = 'Teste envio Email';
-        //$mensaje = 'Hora de envio: ' . Carbon::now();
-        //mail('carlos.amores@iahorro.com', $asunto, $mensaje);
     }
 
-    public function recordarCumpleaños($name, $fecha){
-        $msg = 'NO';
-        $dateNow = Carbon::now();
-        if($dateNow->month === $fecha['M'] && $dateNow->day === $fecha['D']){
-            $edad = $dateNow->year - $fecha['Y'];
-            $msg = $name . " hoy cumple " . $edad . ' anios.';
-        }
-        $dateNowTomorrow = Carbon::tomorrow();
-        if($dateNowTomorrow->month === $fecha['M'] && $dateNowTomorrow->day === $fecha['D']){
-            $edad = $dateNowTomorrow->year - $fecha['Y'];
-            $msg = 'Mañana ' . $name . " cumple " . $edad . ' anios.';
-        }
-        return $msg;
-    }
-    public function enviarCorreo($msg){
-        if($msg !== 'NO'){
-            $asunto = 'Carlos Amores - Recordatorio';
-            $mensaje = $msg . ' - Hora de envio: ' . Carbon::now();
-            mail('carlos.amores@iahorro.com', $asunto, $mensaje);
-            mail('amorescarlos93@hotmail.com', $asunto, $mensaje);
-        }
-    }
+
+
 }
