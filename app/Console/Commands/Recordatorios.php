@@ -44,29 +44,39 @@ class Recordatorios extends Command
         $notices = Notice::where('status', 1)->get();
         foreach ($notices as $key => $notice) {
             if (Carbon::parse($notice->date)->month == Carbon::today()->month && Carbon::parse($notice->date)->day == Carbon::today()->day) {
-                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
-                $subject = $notice->subject . ' de ' . $notice->name;
-                $mensaje = $notice->message . '<p>' . $notice->name . ' cumple <b>' . $edad . '</b> años.</p>';
                 if ($notice->repeat == 0) {
+                    $this->enviarCorreoRecordatorio($notice->subject . ' de ' . $notice->name, $notice->message);
                     $notice->status = 0;
                     $notice->save();
                     $notice->delete();
+                }else{
+                    $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                    $subject = $notice->subject . ' de ' . $notice->name;
+                    $mensaje = $notice->message . '<p>' . $notice->name . ' cumple <b>' . $edad . '</b> años.</p>';
+                    $this->enviarCorreoRecordatorio($subject, $mensaje);
                 }
-                $this->enviarCorreoRecordatorio($subject, $mensaje);
             }
             // En una semana
             if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(7)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(7)->day) {
-                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
-                $subject = $notice->subject . ' de ' . $notice->name;
-                $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años en una semana</p>';
-                $this->enviarCorreoRecordatorio($subject, $mensaje);
+                if ($notice->repeat == 0) {
+                    $this->enviarCorreoRecordatorio($notice->subject . ' de ' . $notice->name, $notice->message . ' en una semana');
+                }else{
+                    $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                    $subject = $notice->subject . ' de ' . $notice->name;
+                    $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años en una semana</p>';
+                    $this->enviarCorreoRecordatorio($subject, $mensaje);
+                }
             }
             // Al dia siguiente
             if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(1)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(1)->day) {
-                $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
-                $subject = $notice->subject . ' de ' . $notice->name;
-                $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años MAÑANA</p>';
-                $this->enviarCorreoRecordatorio($subject, $mensaje);
+                if ($notice->repeat == 0) {
+                    $this->enviarCorreoRecordatorio($notice->subject . ' de ' . $notice->name, $notice->message . ' mañana.');
+                }else{
+                    $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
+                    $subject = $notice->subject . ' de ' . $notice->name;
+                    $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años MAÑANA</p>';
+                    $this->enviarCorreoRecordatorio($subject, $mensaje);
+                }
             }
 
         }
