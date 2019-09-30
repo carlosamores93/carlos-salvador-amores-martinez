@@ -66,12 +66,12 @@
                                 <tfoot>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Company</th>
-                                        <th>Job</th>
+                                        <th>Name</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
                                         <th>Status</th>
-                                        <th>Description</th>
-                                        <th>Start date</th>
-                                        <th>End date</th>
+                                        <th>Repeat</th>
+                                        <th>Date</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
