@@ -20,7 +20,7 @@ class CreateNoticesTable extends Migration
             $table->text('message')->nullable();
             $table->boolean('status')->default(1);
             $table->boolean('repeat')->default(1);
-            $table->timestamp('date')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
