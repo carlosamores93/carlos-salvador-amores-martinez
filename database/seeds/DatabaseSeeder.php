@@ -21,7 +21,14 @@ class DatabaseSeeder extends Seeder
         // Rellenar poco a poco
         // php artisan db:seed
         
-        // $this->call(UsersTableSeeder::class);
+        //$this->call(UsersTableSeeder::class);
+        $this->call([
+            UsersTableSeeder::class,
+            WorksTableSeeder::class,
+            SkillsTableSeeder::class,
+            MiniSkillsTableSeeder::class,
+        ]);
+        
         
         factory(User::class, 1000)->create();
         factory(Skill::class, 30)->create();
