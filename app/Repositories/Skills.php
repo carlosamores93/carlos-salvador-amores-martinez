@@ -26,14 +26,16 @@ class Skills
 
 	public function destroySkill($id)
 	{
-		$skill = Skill::where('id', $id)->firstOrFail();
+		//$skill = Skill::where('id', $id)->firstOrFail();
+		$skill = $this->getSkill($id);
         $skill->delete();
         return $skill;
 	}
 
 	public function updateSkill(Request $request, $id)
 	{
-		$skill = Skill::where('id', $id)->firstOrFail();
+		//$skill = Skill::where('id', $id)->firstOrFail();
+		$skill = $this->getSkill($id);
         $skill->title = $request->title;
         $skill->slug = str_slug($request->title);
         $skill->status = $request->status;
