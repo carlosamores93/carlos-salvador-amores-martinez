@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Skills as SkillRepository;
 use App\Skill;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
 
+    public $skillRepository;
+
     // php artisan make:controller SkillController --resource
     // Route::resource('skill', 'SkillController');
 
-    public function __construct()
+    public function __construct(SkillRepository $repository)
     {
         $this->middleware('auth');
+        $this->skillRepository = $repository;
     }
 
 
@@ -25,7 +29,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skills = Skill::all();
+        //$skills = Skill::all();
+        $skills = $this->skillRepository->getSkills();
         return view('back.skill.index', compact('skills'));
     }
 
@@ -47,8 +52,9 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        $request['slug'] = str_slug($request->title);
-        Skill::create($request->all());
+        $skill = $this->skillRepository->storeSkill($request);
+        //$request['slug'] = str_slug($request->title);
+        //Skill::create($request->all());
         return redirect()->route('skill.index')->with('success', 'Skill created successfully');
     }
 
@@ -71,7 +77,8 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill = $this->skillRepository->getSkill($id);
+        //$skill = Skill::where('id', $id)->firstOrFail();
         return view('back.skill.edit', compact('skill'));
     }
 
@@ -84,13 +91,15 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $skill = Skill::where('id', $id)->firstOrFail();
+        $skill = $this->skillRepository->updateSkill($request, $id);
+        /*$skill = Skill::where('id', $id)->firstOrFail();
         $skill->title = $request->title;
         $skill->slug = str_slug($request->title);
         $skill->status = $request->status;
         $skill->description = $request->description;
         $skill->save();
-        return redirect()->route('skill.index')->with('primary', 'Skill updated correctly');
+        */
+        return redirect()->route('skill.index')->with('primary', 'Skill with id:'.$skill->id.' updated correctly');
     }
 
     /**
@@ -101,8 +110,9 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        $skill = Skill::where('id', $id)->firstOrFail();
-        $skill->delete();
-        return redirect()->route('skill.index')->with('dark', 'Skill deleted successfully');
+        //$skill = Skill::where('id', $id)->firstOrFail();
+        //$skill->delete();
+        $skill = $this->skillRepository->destroySkill($id);
+        return redirect()->route('skill.index')->with('dark', 'Skill '.$skill->title.' deleted successfully');
     }
 }

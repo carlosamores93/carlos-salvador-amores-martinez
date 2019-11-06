@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Works as WorkRepository;
 use App\Work;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,10 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(WorkRepository $work)
     {
-        $works = Work::orderBy('start_date', 'ASC')->get();
+        $works = $work->getWorks();
+        //$works = Work::orderBy('start_date', 'ASC')->get();
         return view('back.work.index', compact('works'));
     }
 
