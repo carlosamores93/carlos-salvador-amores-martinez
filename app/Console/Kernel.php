@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\Recordatorios::class,
     ];
 
     /**
@@ -26,6 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('notices')->dailyAt('08:00');
+        $schedule->command('notices')->dailyAt('15:00');
+        $schedule->command('notices')->dailyAt('22:00');
     }
 
     /**

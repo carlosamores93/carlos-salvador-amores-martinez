@@ -84,6 +84,27 @@
                 </li>
 
                 <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-message-alert"></i>
+                        <span class="hide-menu">Notices </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item">
+                            <a href="{{ route('notice.index') }}" class="sidebar-link">
+                                <i class="mdi mdi-note-outline"></i>
+                                <span class="hide-menu"> All notices </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('notice.create') }}" class="sidebar-link">
+                                <i class="mdi mdi-note-plus"></i>
+                                <span class="hide-menu"> New notice </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('home') }}" aria-expanded="false">
                         <i class="mdi mdi-google-chrome"></i>
                         <span class="hide-menu">Go to home</span>
