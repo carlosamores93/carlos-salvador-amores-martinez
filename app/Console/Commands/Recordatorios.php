@@ -85,7 +85,6 @@ class Recordatorios extends Command
     }
 
     private function enviarCorreoRecordatorio($asunto, $mensaje){
-        mail('carlos.amores@iahorro.com', $asunto, $mensaje);
         mail('amorescarlos93@hotmail.com', $asunto, $mensaje);
     }
 
