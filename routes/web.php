@@ -11,6 +11,10 @@
 |
 */
 
+/*DB::listen(function($query){
+	echo "<pre>{$query->sql}</pre>";
+});*/
+
 Route::namespace('Frontend')->group(function () {
 	Route::get('/', 'SiteController@home')->name('home');
 	// Vistas para mi cv

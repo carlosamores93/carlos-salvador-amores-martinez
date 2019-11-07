@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Works as WorkRepository;
 use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class WorkController extends Controller
 {
@@ -52,6 +53,12 @@ class WorkController extends Controller
         $request['slug'] = str_slug($request->company);
         Work::create($request->all());
         $this->storeImgForProduct($request);
+        if (env('CACHE_DRIVER') === 'redis') {
+            Cache::tags('works')->flush();
+        }else{
+            Cache::forget('works.all');
+        }
+        //Cache::flush();
         return redirect()->route('work.index')->with('success', 'Work created successfully');
     }
 
@@ -96,6 +103,12 @@ class WorkController extends Controller
         $work->end_date = $request->end_date;
         $work->save();
         $this->storeImgForProduct($request);
+        if (env('CACHE_DRIVER') === 'redis') {
+            Cache::tags('works')->flush();
+        }else{
+            Cache::forget('works.all');
+        }
+        //Cache::flush();
         return redirect()->route('work.index')->with('primary', 'Work updated correctly');
     }
 
@@ -109,6 +122,12 @@ class WorkController extends Controller
     {
         $work = Work::where('id', $id)->firstOrFail();
         $work->delete();
+        if (env('CACHE_DRIVER') === 'redis') {
+            Cache::tags('works')->flush();
+        }else{
+            Cache::forget('works.all');
+        }
+        //Cache::flush();
         return redirect()->route('work.index')->with('dark', 'Work deleted successfully');
     }
 

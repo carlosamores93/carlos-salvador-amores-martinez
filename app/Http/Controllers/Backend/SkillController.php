@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Skills as SkillRepository;
 use App\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class SkillController extends Controller
 {
@@ -55,6 +56,7 @@ class SkillController extends Controller
         $skill = $this->skillRepository->storeSkill($request);
         //$request['slug'] = str_slug($request->title);
         //Skill::create($request->all());
+        Cache::forget('skills.all');
         return redirect()->route('skill.index')->with('success', 'Skill created successfully');
     }
 
@@ -99,6 +101,7 @@ class SkillController extends Controller
         $skill->description = $request->description;
         $skill->save();
         */
+        Cache::forget('skills.all');
         return redirect()->route('skill.index')->with('primary', 'Skill with id:'.$skill->id.' updated correctly');
     }
 
@@ -113,6 +116,7 @@ class SkillController extends Controller
         //$skill = Skill::where('id', $id)->firstOrFail();
         //$skill->delete();
         $skill = $this->skillRepository->destroySkill($id);
+        Cache::forget('skills.all');
         return redirect()->route('skill.index')->with('dark', 'Skill '.$skill->title.' deleted successfully');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\MiniSkill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class MiniskillController extends Controller
 {
@@ -46,6 +47,7 @@ class MiniskillController extends Controller
     public function store(Request $request)
     {
         MiniSkill::create($request->all());
+        Cache::forget('miniskills.all');
         return redirect()->route('miniskill.index')->with('success', 'MiniSkill created successfully');
     }
 
@@ -86,6 +88,7 @@ class MiniskillController extends Controller
         $miniskill->progress = $request->progress;
         $miniskill->status = $request->status;
         $miniskill->save();
+        Cache::forget('miniskills.all');
         return redirect()->route('miniskill.index')->with('primary', 'MiniSkill updated correctly');
     }
 
@@ -99,6 +102,7 @@ class MiniskillController extends Controller
     {
         $miniskill = MiniSkill::where('id', $id)->firstOrFail();
         $miniskill->delete();
+        Cache::forget('miniskills.all');
         return redirect()->route('miniskill.index')->with('dark', 'MiniSkill deleted successfully');
     }
 }
