@@ -5,3 +5,5 @@ Este es un sitio web para presentar mi curriculum de forma online, dispongo de u
 - **Página principal: [Home](http://carlosamores.hol.es)**
 - Página entrar al CMS: [Login](http://carlosamores.hol.es/login).
 
+- CRON 	php /path/artisan schedule:run
+
