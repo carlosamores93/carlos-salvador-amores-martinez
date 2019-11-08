@@ -37,7 +37,7 @@ class WorksTableSeeder extends Seeder
 			'job' => 'Programador Backend',
 			'status' => 1,
 			'description' => self::getDescription(),
-			'start_date' => '2018-03-01 00:00:0'
+			'start_date' => '2018-03-01 00:00:00'
         ]);
     }
 
