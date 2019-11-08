@@ -31,7 +31,8 @@ class CurriculumVitaeController extends Controller{
             }
             return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
         }else{
-    	   return view('front.curriculum');
+            Cache::flush();
+    	    return view('front.curriculum');
         }
     }
 
