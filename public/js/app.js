@@ -1779,9 +1779,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Article omponent mounted.');
+  },
+  data: function data() {
+    return {
+      articles: [],
+      article: {
+        id: '',
+        title: '',
+        body: ''
+      },
+      article_id: '',
+      pagination: {},
+      edit: false
+    };
+  },
+  created: function created() {
+    this.fetchArticles();
+  },
+  methods: {
+    fetchArticles: function fetchArticles() {
+      var _this = this;
+
+      fetch('api/articles').then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        _this.articles = res.data;
+        console.log(res.data);
+      });
+    }
   }
 });
 
@@ -36862,32 +36893,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Article Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an article component.\n                "
-              )
-            ])
-          ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Article Component")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            _vm._l(_vm.articles, function(article) {
+              return _c("div", { key: article.id }, [
+                _c("h4", [_vm._v(_vm._s(article.title))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(article.body))])
+              ])
+            }),
+            0
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

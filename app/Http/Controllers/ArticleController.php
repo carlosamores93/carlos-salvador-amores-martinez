@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Http\Resources\Article as ArticleResource;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    //  https://github.com/bradtraversy/larticles_api 
+    //  https://www.youtube.com/watch?v=DJ6PD_jBtU0
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        // Get articles
+        $articles = Article::paginate(15);
+        // Return collection of articles as a resource
+        return ArticleResource::collection($articles);
     }
 
     /**
