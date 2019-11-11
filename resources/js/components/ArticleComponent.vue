@@ -3,26 +3,36 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Article Component</div>
+                    <div class="card-header text-center">Article Component</div>
 
-                    <nav aria-label="Page navigation example">
+                    <form @submit.prevent="addArticle()" class="mb-3 mt-10">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter title" v-model="article.title">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Enter text" v-model="article.body"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light btn-block">Save article</button>
+                    </form>
+
+                    <nav aria-label="Page navigation example" >
                       <ul class="pagination">
-                        <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link" href="#" @click="fetchArticles(pagination.prev_page_url)">Previous</a></li>
+                        <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link" @click="fetchArticles(pagination.prev_page_url)">Previous</a></li>
 
 
 
-                        <li class="page-item disabled"><a class="page-link text-dark" href="#">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
+                        <li class="page-item disabled"><a class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
 
 
 
-                        <li class="page-item" v-for="i in pagination.last_page"><a class="page-link" href="#" @click="fetchArticles(pagination.path+'?page='+i)">{{ i }}</a></li>
+                        <li class="page-item" v-for="i in pagination.last_page"><a class="page-link" @click="fetchArticles(pagination.path+'?page='+i)">{{ i }}</a></li>
 
 
 
-                        <li class="page-item disabled"><a class="page-link text-dark" href="#">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
+                        <li class="page-item disabled"><a class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
 
 
-                        <li v-bind:class="[{disabled: !pagination.next_page_url}]" class="page-item"><a class="page-link" href="#" @click="fetchArticles(pagination.next_page_url)">Next</a></li>
+                        <li v-bind:class="[{disabled: !pagination.next_page_url}]" class="page-item"><a class="page-link" @click="fetchArticles(pagination.next_page_url)">Next</a></li>
                       </ul>
                     </nav>
 
@@ -31,7 +41,9 @@
                         <div v-for="article in articles" v-bind:key="article.id">
                             <h4>{{ article.title }}</h4>
                             <p>{{ article.body }}</p>
-                            <button @click="deleteArticle(article.id)"" class="btn btn-danger">Remove article</button>
+                            <button @click="editArticle(article)" class="btn btn-info mb-2">Edit article</button>
+                            <button @click="deleteArticle(article.id)" class="btn btn-danger">Remove article</button>
+                            <!-- <button @click="deleteArticle(article)"" class="btn btn-danger">Remove article</button> -->
                             <hr>
                         </div>
                     </div>
@@ -88,8 +100,10 @@
                 }
                 this.pagination = paginador;
             },
+            //deleteArticle(article){
             deleteArticle(id){
                 if (confirm('Are you sure??')) {
+                    //fetch(`api/article/${article}`, {
                     fetch(`api/article/${id}`, {
                         method: 'delete'
                     })
@@ -100,6 +114,48 @@
                     })
                     .catch(err => console.log(err));
                 }
+            },
+            addArticle(){
+                if (this.edit === false) {
+                    fetch('api/article', {
+                        method: 'post',
+                        body: JSON.stringify(this.article),
+                        headers: {
+                            'content-type': 'application/json'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        this.article.title = '';
+                        this.article.body = '';
+                        alert('Article add');
+                        this.fetchArticles();
+                    })
+                    .catch(err => console.log(err));
+                }else{
+                    fetch('api/article', {
+                        method: 'put',
+                        body: JSON.stringify(this.article),
+                        headers: {
+                            'content-type': 'application/json'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        this.article.title = '';
+                        this.article.body = '';
+                        alert('Article updated');
+                        this.fetchArticles();
+                    })
+                    .catch(err => console.log(err));   
+                }
+            },
+            editArticle(articulo){
+                this.edit = true;
+                this.article.id = articulo.id;
+                this.article.article_id = articulo.id;
+                this.article.title = articulo.title;
+                this.article.body = articulo.body;
             }
         }
 

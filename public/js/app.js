@@ -1806,6 +1806,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Article omponent mounted.');
@@ -1852,10 +1864,12 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.pagination = paginador;
     },
+    //deleteArticle(article){
     deleteArticle: function deleteArticle(id) {
       var _this2 = this;
 
       if (confirm('Are you sure??')) {
+        //fetch(`api/article/${article}`, {
         fetch("api/article/".concat(id), {
           method: 'delete'
         }).then(function (res) {
@@ -1868,6 +1882,54 @@ __webpack_require__.r(__webpack_exports__);
           return console.log(err);
         });
       }
+    },
+    addArticle: function addArticle() {
+      var _this3 = this;
+
+      if (this.edit === false) {
+        fetch('api/article', {
+          method: 'post',
+          body: JSON.stringify(this.article),
+          headers: {
+            'content-type': 'application/json'
+          }
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          _this3.article.title = '';
+          _this3.article.body = '';
+          alert('Article add');
+
+          _this3.fetchArticles();
+        }).catch(function (err) {
+          return console.log(err);
+        });
+      } else {
+        fetch('api/article', {
+          method: 'put',
+          body: JSON.stringify(this.article),
+          headers: {
+            'content-type': 'application/json'
+          }
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          _this3.article.title = '';
+          _this3.article.body = '';
+          alert('Article updated');
+
+          _this3.fetchArticles();
+        }).catch(function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editArticle: function editArticle(articulo) {
+      this.edit = true;
+      this.article.id = articulo.id;
+      this.article.article_id = articulo.id;
+      this.article.title = articulo.title;
+      this.article.body = articulo.body;
     }
   }
 });
@@ -36953,9 +37015,80 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
+          _c("div", { staticClass: "card-header text-center" }, [
             _vm._v("Article Component")
           ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "mb-3 mt-10",
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addArticle()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.article.title,
+                      expression: "article.title"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Enter title" },
+                  domProps: { value: _vm.article.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.article, "title", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.article.body,
+                      expression: "article.body"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { placeholder: "Enter text" },
+                  domProps: { value: _vm.article.body },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.article, "body", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-light btn-block",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Save article")]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
             _c(
@@ -36973,7 +37106,6 @@ var render = function() {
                       "a",
                       {
                         staticClass: "page-link",
-                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
                             return _vm.fetchArticles(
@@ -36988,21 +37120,14 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("li", { staticClass: "page-item disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link text-dark",
-                      attrs: { href: "#" }
-                    },
-                    [
-                      _vm._v(
-                        "Page " +
-                          _vm._s(_vm.pagination.current_page) +
-                          " of " +
-                          _vm._s(_vm.pagination.last_page)
-                      )
-                    ]
-                  )
+                  _c("a", { staticClass: "page-link text-dark" }, [
+                    _vm._v(
+                      "Page " +
+                        _vm._s(_vm.pagination.current_page) +
+                        " of " +
+                        _vm._s(_vm.pagination.last_page)
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.pagination.last_page, function(i) {
@@ -37011,7 +37136,6 @@ var render = function() {
                       "a",
                       {
                         staticClass: "page-link",
-                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
                             return _vm.fetchArticles(
@@ -37026,21 +37150,14 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("li", { staticClass: "page-item disabled" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link text-dark",
-                      attrs: { href: "#" }
-                    },
-                    [
-                      _vm._v(
-                        "Page " +
-                          _vm._s(_vm.pagination.current_page) +
-                          " of " +
-                          _vm._s(_vm.pagination.last_page)
-                      )
-                    ]
-                  )
+                  _c("a", { staticClass: "page-link text-dark" }, [
+                    _vm._v(
+                      "Page " +
+                        _vm._s(_vm.pagination.current_page) +
+                        " of " +
+                        _vm._s(_vm.pagination.last_page)
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
@@ -37054,7 +37171,6 @@ var render = function() {
                       "a",
                       {
                         staticClass: "page-link",
-                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
                             return _vm.fetchArticles(
@@ -37080,6 +37196,19 @@ var render = function() {
                 _c("h4", [_vm._v(_vm._s(article.title))]),
                 _vm._v(" "),
                 _c("p", [_vm._v(_vm._s(article.body))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editArticle(article)
+                      }
+                    }
+                  },
+                  [_vm._v("Edit article")]
+                ),
                 _vm._v(" "),
                 _c(
                   "button",
