@@ -62,7 +62,7 @@ class ArticleController extends Controller
         // Get article
         //$article = Article::findOrFail($id);
         // Return single article as a resource
-        return new ArticleResource($article);
+        //return new ArticleResource($article);
     }
 
     /**
