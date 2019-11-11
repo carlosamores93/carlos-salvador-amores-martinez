@@ -34,6 +34,13 @@ Route::group(['prefix' => 'car'], function () {
 	Route::delete('{id}','CarController@destroy');
 });
 
+Route::group(['prefix' => 'article'], function () {
+	Route::get('/', function () {
+		return view('front.crud-vuejs.index');
+	});
+});
+
+
 
 // Authentication
 Auth::routes();

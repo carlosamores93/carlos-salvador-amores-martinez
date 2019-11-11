@@ -18,8 +18,10 @@ class SkillsTableSeeder extends Seeder
     	// Ejecutar
     	//php artisan db:seed --class=SkillsTableSeeder
     	//
+       
+        factory(Skill::class, 30)->create();
     	
-    	DB::table('skills')->insert([
+    	/*DB::table('skills')->insert([
 	        'title' => 'SEO',
 			'slug' => 'seo2',
 			'description' => 'SEO',
@@ -27,7 +29,7 @@ class SkillsTableSeeder extends Seeder
 	        'created_at' => now(),
 	        'updated_at' => now()
         ]);
-        
+        */
 
     	/*Skill::create([
 	        'title' => 'SEO',
