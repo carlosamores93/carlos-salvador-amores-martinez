@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Console\Commands\Closure\UserLogicTest;
 use Illuminate\Console\Command;
 
 class TestCarlosAmores extends Command
@@ -39,6 +40,17 @@ class TestCarlosAmores extends Command
     {
 
         $this->info('******* CLOSURE ********');
+
+        // https://anexsoft.com/implementacion-de-closures-en-php
+        UserLogicTest::TryToLogin('user', '123456', function($res){
+		    var_dump($res);
+		});
+
+		UserLogicTest::TryToLogin('user', '654321', function($res2){
+		    var_dump($res2);
+		});
+
+
         $name = 'Carlos Amores';
         // Closure: funciones anónimas
         $greet = function() use($name){
@@ -67,6 +79,14 @@ class TestCarlosAmores extends Command
         print_r($output);
         //dd($filter_even());
         //dd($filter_even);
+        //
+        //
+        //
+        //
+        
+
 
     }
+
+
 }
