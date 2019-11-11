@@ -14,7 +14,7 @@ class Recordatorios extends Command
      *
      * @var string
      */
-    protected $signature = 'notices';
+    protected $signature = 'command:notices';
 
     /**
      * The console command description.

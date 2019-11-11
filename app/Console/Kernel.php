@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Recordatorios::class,
+        Commands\TestCarlosAmores::class,
     ];
 
     /**
@@ -26,9 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('notices')->dailyAt('08:00');
-        $schedule->command('notices')->dailyAt('15:00');
-        $schedule->command('notices')->dailyAt('22:00');
+        $schedule->command('command:notices')->dailyAt('08:00');
+        $schedule->command('command:notices')->dailyAt('15:00');
+        $schedule->command('command:notices')->dailyAt('22:00');
     }
 
     /**
