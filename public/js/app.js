@@ -1782,6 +1782,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Article omponent mounted.');
@@ -1803,15 +1827,47 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchArticles();
   },
   methods: {
-    fetchArticles: function fetchArticles() {
+    fetchArticles: function fetchArticles(page_url) {
       var _this = this;
 
-      fetch('api/articles').then(function (res) {
+      var vm = this;
+      page_url = page_url || 'api/articles';
+      fetch(page_url).then(function (res) {
         return res.json();
       }).then(function (res) {
         _this.articles = res.data;
         console.log(res.data);
+        vm.makePagination(res.meta, res.links);
+      }).catch(function (err) {
+        return console.log(err);
       });
+    },
+    makePagination: function makePagination(meta, links) {
+      var paginador = {
+        current_page: meta.current_page,
+        last_page: meta.last_page,
+        next_page_url: links.next,
+        prev_page_url: links.prev,
+        path: meta.path
+      };
+      this.pagination = paginador;
+    },
+    deleteArticle: function deleteArticle(id) {
+      var _this2 = this;
+
+      if (confirm('Are you sure??')) {
+        fetch("api/article/".concat(id), {
+          method: 'delete'
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          alert('Article removed');
+
+          _this2.fetchArticles();
+        }).catch(function (err) {
+          return console.log(err);
+        });
+      }
     }
   }
 });
@@ -36901,6 +36957,121 @@ var render = function() {
             _vm._v("Article Component")
           ]),
           _vm._v(" "),
+          _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+            _c(
+              "ul",
+              { staticClass: "pagination" },
+              [
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.prev_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.fetchArticles(
+                              _vm.pagination.prev_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v("Previous")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "page-item disabled" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link text-dark",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        "Page " +
+                          _vm._s(_vm.pagination.current_page) +
+                          " of " +
+                          _vm._s(_vm.pagination.last_page)
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.pagination.last_page, function(i) {
+                  return _c("li", { staticClass: "page-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.fetchArticles(
+                              _vm.pagination.path + "?page=" + i
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(i))]
+                    )
+                  ])
+                }),
+                _vm._v(" "),
+                _c("li", { staticClass: "page-item disabled" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link text-dark",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        "Page " +
+                          _vm._s(_vm.pagination.current_page) +
+                          " of " +
+                          _vm._s(_vm.pagination.last_page)
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.next_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.fetchArticles(
+                              _vm.pagination.next_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v("Next")]
+                    )
+                  ]
+                )
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
@@ -36908,7 +37079,22 @@ var render = function() {
               return _c("div", { key: article.id }, [
                 _c("h4", [_vm._v(_vm._s(article.title))]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(article.body))])
+                _c("p", [_vm._v(_vm._s(article.body))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteArticle(article.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Remove article")]
+                ),
+                _vm._v(" "),
+                _c("hr")
               ])
             }),
             0
