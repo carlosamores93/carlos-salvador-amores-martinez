@@ -24,6 +24,17 @@ Route::namespace('Frontend')->group(function () {
 	})->where('name', '[A-Za-z]+');
 });
 
+
+Route::group(['prefix' => 'car'], function () {
+	Route::get('add','CarController@create');
+	Route::post('add','CarController@store');
+	Route::get('index','CarController@index');
+	Route::get('edit/{id}','CarController@edit');
+	Route::post('edit/{id}','CarController@update');
+	Route::delete('{id}','CarController@destroy');
+});
+
+
 // Authentication
 Auth::routes();
 
