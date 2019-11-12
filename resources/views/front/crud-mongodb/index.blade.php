@@ -24,7 +24,13 @@
                                 </div><br />
                             @endif
                             <a href="{{ route('crud-mongodb-add') }}" class="btn btn-success"> Create new item </a>
-                            <br><br>
+                            <br>
+                            <br>
+                            <form class="form-inline" action="{{ route('crud-mongodb') }}">
+                                <input type="text" class="form-control mb-2 mr-sm-2" name="search">
+                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                            </form>
+                            <br>
 
 
                             <table class="table table-striped">

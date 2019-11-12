@@ -9,9 +9,17 @@ use Illuminate\Support\Str;
 class CarController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $cars = Car::all();
+
+        
+        if (empty($request->get('search'))) {
+            $cars = Car::all();
+        }else{
+            // Uso de scopes
+            // https://www.youtube.com/watch?v=lsFXi1ILD2Y
+            $cars = Car::searchitem($request->get('search'))->get();
+        }
         return view('front.crud-mongodb.index',compact('cars'));
     }
 
