@@ -25,16 +25,16 @@ Route::namespace('Frontend')->group(function () {
 });
 
 
-Route::group(['prefix' => 'car'], function () {
+Route::group(['prefix' => 'crud-with-mongodb'], function () {
+	Route::get('/','CarController@index');
 	Route::get('add','CarController@create');
 	Route::post('add','CarController@store');
-	Route::get('index','CarController@index');
 	Route::get('edit/{id}','CarController@edit');
 	Route::post('edit/{id}','CarController@update');
 	Route::delete('{id}','CarController@destroy');
 });
 
-Route::group(['prefix' => 'article'], function () {
+Route::group(['prefix' => 'crud-with-vuejs'], function () {
 	Route::get('/', function () {
 		return view('front.crud-vuejs.index');
 	});

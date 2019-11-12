@@ -12,12 +12,12 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::all();
-        return view('front.mongodb-crud-car.index',compact('cars'));
+        return view('front.crud-mongodb.index',compact('cars'));
     }
 
     public function create()
     {
-        return view('front.mongodb-crud-car.create');
+        return view('front.crud-mongodb.create');
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
-        return view('front.mongodb-crud-car.edit',compact('car','id'));
+        return view('front.crud-mongodb.edit',compact('car','id'));
     }
 
     public function update(Request $request, $id)
