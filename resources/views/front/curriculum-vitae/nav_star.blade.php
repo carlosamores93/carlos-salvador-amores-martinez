@@ -11,7 +11,7 @@
       <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Home</a>
+            <a class="nav-link js-scroll active" href="#home">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#about">Sobre mi</a>
@@ -46,6 +46,9 @@
                 </li>
             @endguest
 
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{ route('home') }}">HomePage</a>
+          </li>
         </ul>
       </div>
     </div>
