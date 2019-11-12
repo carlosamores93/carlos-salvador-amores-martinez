@@ -26,8 +26,8 @@ Route::namespace('Frontend')->group(function () {
 
 
 Route::group(['prefix' => 'crud-with-mongodb'], function () {
-	Route::get('/','CarController@index');
-	Route::get('add','CarController@create');
+	Route::get('/','CarController@index')->name('crud-mongodb');
+	Route::get('add','CarController@create')->name('crud-mongodb-add');
 	Route::post('add','CarController@store');
 	Route::get('edit/{id}','CarController@edit');
 	Route::post('edit/{id}','CarController@update');
@@ -37,7 +37,7 @@ Route::group(['prefix' => 'crud-with-mongodb'], function () {
 Route::group(['prefix' => 'crud-with-vuejs'], function () {
 	Route::get('/', function () {
 		return view('front.crud-vuejs.index');
-	});
+	})->name('crud-vuejs');
 });
 
 

@@ -26,7 +26,23 @@
             </div> --}}
             <div class="row align-items-center">
                 <div class="col-md-12">
-                    <a class="btn btn-outline-info btn-lg btn-block" href="{{ route('curriculum') }}"> CURRICULUM VITAE </a>
+                    <a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('curriculum') }}"> CURRICULUM VITAE </a>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <a class="btn btn-outline-secondary btn-lg btn-block" href="{{ route('crud-mongodb') }}"> CRUD WITH MONGODB </a>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <a class="btn btn-outline-success btn-lg btn-block" href="{{ route('crud-vuejs') }}"> CRUD WITH VUEJS </a>
                 </div>
             </div>
             <br>

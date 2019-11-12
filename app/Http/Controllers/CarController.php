@@ -29,7 +29,7 @@ class CarController extends Controller
         $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));        
         $car->description = $request->get('description');        
         $car->save();
-        return redirect('car/index')->with('success', 'Car has been successfully added');
+        return redirect('crud-with-mongodb')->with('success', 'Car has been successfully added');
     }
 
 
@@ -48,14 +48,14 @@ class CarController extends Controller
         $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));        
         $car->description = $request->get('description');        
         $car->save();
-        return redirect('car/index')->with('success', 'Car has been successfully update');
+        return redirect('crud-with-mongodb')->with('success', 'Car has been successfully update');
     }
 
     public function destroy($id)
     {
         $car = Car::find($id);
         $car->delete();
-        return redirect('car/index')->with('success','Car has been  deleted');
+        return redirect('crud-with-mongodb')->with('success','Car has been  deleted');
     }
 
 }
