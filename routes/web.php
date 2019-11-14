@@ -42,6 +42,8 @@ Route::group(['prefix' => 'crud-with-vuejs'], function () {
 
 Route::group(['prefix' => 'crud-with-angularjs'], function () {
     Route::resource('contacts', 'ContactController');
+    Route::get('active', 'ContactController@getAllActive');
+    Route::get('completed', 'ContactController@getAllCompleted');
 /*    Route::get('/', function () {
         return view('front.crud-angularjs.index');
     })->name('crud-angularjs');*/
