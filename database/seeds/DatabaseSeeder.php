@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             SkillsTableSeeder::class,
             MiniSkillsTableSeeder::class,
             ArticlesTableSeeder::class,
+            ContactsTableSeeder::class,
         ]);
         
         

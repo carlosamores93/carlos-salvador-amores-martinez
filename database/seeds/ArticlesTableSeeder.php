@@ -12,6 +12,12 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
+    	// Crear Seeder
+    	// php artisan make:seeder ArticlesTableSeeder
+
+    	// Ejecutar
+    	//php artisan db:seed --class=ArticlesTableSeeder
+    	
         factory(Article::class, 30)->create();
     }
 }
