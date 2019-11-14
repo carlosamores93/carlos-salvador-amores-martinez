@@ -12,6 +12,7 @@ class Contact extends Model
         'email',
         'city',
         'country',
-        'job_title'
+        'job_title',
+        'status'
     ];
 }

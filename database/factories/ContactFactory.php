@@ -13,5 +13,6 @@ $factory->define(Contact::class, function (Faker $faker) {
         'city' => $faker->city,
         'country' => $faker->country,
         'job_title' => $faker->jobTitle,
+        'status' => $faker->randomElement([0,1])
     ];
 });
