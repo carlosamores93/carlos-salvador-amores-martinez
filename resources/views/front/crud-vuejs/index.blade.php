@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="{{ route('crud-vuejs') }}">VueJs</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#">AngularJs</a>
+                                <a class="nav-link" href="{{ {{ route('crud-angularjs') }} }}">AngularJs</a>
                               </li>
                             </ul>
                           </div>
