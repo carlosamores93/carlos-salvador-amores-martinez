@@ -50,7 +50,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-12">
-                    <a class="btn btn-outline-info btn-lg btn-block" href="{{ route('crud-angularjs') }}"> CRUD WITH AngularJS </a>
+                    <a class="btn btn-outline-info btn-lg btn-block" href="{{ route('contacts.index') }}"> CRUD WITH AngularJS </a>
                 </div>
             </div>
             <br>
