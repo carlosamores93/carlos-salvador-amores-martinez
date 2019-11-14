@@ -11,7 +11,6 @@
     </head>
     <body>
             <div id="app" class="content"><!--La equita id debe ser app, como hemos visto en app.js-->
-                {{-- <example-component></example-component> --}}
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,6 +36,7 @@
                 </div>
 
                 <article-component></article-component>
+                {{-- <example-component></example-component> --}}
                 <!--Añadimos nuestro componente vuejs-->
                 
             </div>
