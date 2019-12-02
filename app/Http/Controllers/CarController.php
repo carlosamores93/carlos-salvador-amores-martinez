@@ -11,8 +11,14 @@ class CarController extends Controller
 
     public function index()
     {
-        $cars = Car::all();
-        return view('front.mongodb-crud-car.index',compact('cars'));
+        if (empty($request->get('search'))) {
+            $cars = Car::all();
+        } else {
+            // Uso de scopes
+            // https://www.youtube.com/watch?v=lsFXi1ILD2Y
+            $cars = Car::searchitem($request->get('search'))->get();
+        }
+        return view('front.crud-mongodb.index', compact('cars'));
     }
 
     public function create()
@@ -25,9 +31,9 @@ class CarController extends Controller
         $car = new Car();
         $car->company = $request->get('company');
         $car->model = $request->get('model');
-        $car->status = $request->get('status');        
-        $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));        
-        $car->description = $request->get('description');        
+        $car->status = $request->get('status');
+        $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));
+        $car->description = $request->get('description');
         $car->save();
         return redirect('car/index')->with('success', 'Car has been successfully added');
     }
@@ -36,7 +42,11 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
+<<<<<<< Updated upstream
         return view('front.mongodb-crud-car.edit',compact('car','id'));
+=======
+        return view('front.crud-mongodb.edit', compact('car', 'id'));
+>>>>>>> Stashed changes
     }
 
     public function update(Request $request, $id)
@@ -44,9 +54,9 @@ class CarController extends Controller
         $car= Car::find($id);
         $car->company = $request->get('company');
         $car->model = $request->get('model');
-        $car->status = $request->get('status');        
-        $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));        
-        $car->description = $request->get('description');        
+        $car->status = $request->get('status');
+        $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));
+        $car->description = $request->get('description');
         $car->save();
         return redirect('car/index')->with('success', 'Car has been successfully update');
     }
@@ -55,7 +65,10 @@ class CarController extends Controller
     {
         $car = Car::find($id);
         $car->delete();
+<<<<<<< Updated upstream
         return redirect('car/index')->with('success','Car has been  deleted');
+=======
+        return redirect('crud-with-mongodb')->with('success', 'Car has been  deleted');
+>>>>>>> Stashed changes
     }
-
 }
