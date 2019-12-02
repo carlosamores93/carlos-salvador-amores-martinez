@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\Commands\Closure\UserLogicTest;
+use App\Work;
 use Illuminate\Console\Command;
 
 class TestCarlosAmores extends Command
@@ -19,7 +20,7 @@ class TestCarlosAmores extends Command
      *
      * @var string
      */
-    protected $description = 'Test Carlos Amores';
+    protected $description = 'Test para porbar varias cosillas';
 
     /**
      * Create a new command instance.
@@ -38,6 +39,14 @@ class TestCarlosAmores extends Command
      */
     public function handle()
     {
+        $this->info('******* SCOPE ********');
+
+        // scope: ActiveWork()
+        // https://laravel.com/docs/5.8/eloquent#query-scopes
+        $worksActives = Work::ActiveWork()->limit(3)->get();
+        foreach ($worksActives as $key => $value) {
+            print_r($value->toArray());
+        }
 
         $this->info('******* CLOSURE ********');
 

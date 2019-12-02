@@ -14,7 +14,10 @@ class SiteController extends Controller{
 
 
     public function home(){
-    	return redirect(route('curriculum'));
+    	//return redirect(route('curriculum'));
+    	$imagen = 'curriculum/img/guayaquil.jpg';
+    	//$imagen = 'curriculum/img/oriente.JPG';
+    	return view('front.home', compact('imagen'));
     }
 
     public function bautizo(){

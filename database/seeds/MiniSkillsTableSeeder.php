@@ -27,6 +27,8 @@ class MiniSkillsTableSeeder extends Seeder
 	        'updated_at' => now()
         ]);
         */
+       
+       
 
     	MiniSkill::create([
 	        'title' => 'SEO',

@@ -12,4 +12,15 @@ class Work extends Model
     protected $fillable = [
         'company', 'slug', 'job', 'status', 'description', 'start_date', 'end_date',
     ];
+
+    /**
+     * Scope a query to only include active users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeActiveWork($query)
+    {
+        return $query->where('status', 1);
+    }
 }

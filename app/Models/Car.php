@@ -13,4 +13,9 @@ class Car extends Eloquent
     protected $fillable = [
         'company', 'model', 'status', 'slug', 'description', 'created_at', 'updated_at'
     ];
+
+    public function scopeSearchItem($query, $search)
+    {
+    	$query->where('company', 'like', '%'.$search.'%');
+    }
 }
