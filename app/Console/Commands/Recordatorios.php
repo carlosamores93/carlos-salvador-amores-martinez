@@ -49,7 +49,7 @@ class Recordatorios extends Command
                     $notice->status = 0;
                     $notice->save();
                     $notice->delete();
-                }else{
+                } else {
                     $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
                     $subject = $notice->subject . ' de ' . $notice->name;
                     $mensaje = $notice->message . '<p>' . $notice->name . ' cumple <b>' . $edad . '</b> años.</p>';
@@ -60,7 +60,7 @@ class Recordatorios extends Command
             if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(7)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(7)->day) {
                 if ($notice->repeat == 0) {
                     $this->enviarCorreoRecordatorio($notice->subject . ' de ' . $notice->name, $notice->message . ' en una semana');
-                }else{
+                } else {
                     $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
                     $subject = $notice->subject . ' de ' . $notice->name;
                     $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años en una semana</p>';
@@ -71,21 +71,18 @@ class Recordatorios extends Command
             if (Carbon::parse($notice->date)->month == Carbon::today()->addDays(1)->month && Carbon::parse($notice->date)->day == Carbon::today()->addDays(1)->day) {
                 if ($notice->repeat == 0) {
                     $this->enviarCorreoRecordatorio($notice->subject . ' de ' . $notice->name, $notice->message . ' mañana.');
-                }else{
+                } else {
                     $edad =  (int)Carbon::today()->year - (int)Carbon::parse($notice->date)->year;
                     $subject = $notice->subject . ' de ' . $notice->name;
                     $mensaje = $notice->message . '<p>' . $notice->name . ' cumplirá <b>' . $edad . '</b> años MAÑANA</p>';
                     $this->enviarCorreoRecordatorio($subject, $mensaje);
                 }
             }
-
         }
-
-
     }
 
-    private function enviarCorreoRecordatorio($asunto, $mensaje){
+    private function enviarCorreoRecordatorio($asunto, $mensaje)
+    {
         mail('amorescarlos93@hotmail.com', $asunto, $mensaje);
     }
-
 }

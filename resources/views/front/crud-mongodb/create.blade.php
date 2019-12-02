@@ -13,7 +13,7 @@
       <h2>Laravel MongoDB CRUD Tutorial With Example</h2><br/>
       <div class="container">
     </div>
-      <form method="post" action="{{url('car/add')}}">
+      <form method="post" action="{{url('crud-with-mongodb/add')}}">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>

@@ -39,11 +39,11 @@ class CmsController extends Controller
 
     private function storeImgForProduct(Request $request)
     {
-        if($request->file('file')){
+        if ($request->file('file')) {
             $image_name = str_slug($request->name) . '-'. str_slug($request->lastname) .'.' . $request->file('file')->getClientOriginalExtension();
             if (env('APP_ENV') == 'local') {
                 $request->file('file')->move(base_path() . '/public/img/', $image_name);
-            }else{
+            } else {
                 $request->file('file')->move(base_path() . '/public_html/img/', $image_name);
                 $request->file('file')->move(base_path() . '/public/img/', $image_name);
             }
@@ -52,14 +52,13 @@ class CmsController extends Controller
 
     private function storeCurriculumVitae(Request $request)
     {
-        if($request->file('cv')){
+        if ($request->file('cv')) {
             $image_name = 'cv-' . str_slug($request->name) . '-'. str_slug($request->lastname) .'.' . $request->file('cv')->getClientOriginalExtension();
             if (env('APP_ENV') == 'local') {
                 $request->file('cv')->move(base_path() . '/public/', $image_name);
-            }else{
+            } else {
                 $request->file('cv')->move(base_path() . '/public_html/', $image_name);
             }
         }
     }
-
 }

@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\Commands\Closure\UserLogicTest;
+use App\Work;
 use Illuminate\Console\Command;
 
 class TestCarlosAmores extends Command
@@ -19,7 +20,7 @@ class TestCarlosAmores extends Command
      *
      * @var string
      */
-    protected $description = 'Test Carlos Amores';
+    protected $description = 'Test para porbar varias cosillas';
 
     /**
      * Create a new command instance.
@@ -38,22 +39,30 @@ class TestCarlosAmores extends Command
      */
     public function handle()
     {
+        $this->info('******* SCOPE ********');
+
+        // scope: ActiveWork()
+        // https://laravel.com/docs/5.8/eloquent#query-scopes
+        $worksActives = Work::ActiveWork()->limit(3)->get();
+        foreach ($worksActives as $key => $value) {
+            print_r($value->toArray());
+        }
 
         $this->info('******* CLOSURE ********');
 
         // https://anexsoft.com/implementacion-de-closures-en-php
-        UserLogicTest::TryToLogin('user', '123456', function($res){
-		    var_dump($res);
-		});
+        UserLogicTest::TryToLogin('user', '123456', function ($res) {
+            var_dump($res);
+        });
 
-		UserLogicTest::TryToLogin('user', '654321', function($res2){
-		    var_dump($res2);
-		});
+        UserLogicTest::TryToLogin('user', '654321', function ($res2) {
+            var_dump($res2);
+        });
 
 
         $name = 'Carlos Amores';
         // Closure: funciones anónimas
-        $greet = function() use($name){
+        $greet = function () use ($name) {
             $carlos = "Amores";
             echo 'Hi ' . $name . ' ' ;
             return ', bienvenido';
@@ -67,7 +76,7 @@ class TestCarlosAmores extends Command
 
         $input = array(1, 2, 3, 4, 5, 6);
         // Creates a new anonymous function and assigns it to a variable
-        $filter_even = function($item) {
+        $filter_even = function ($item) {
             return ($item % 2) == 0;
         };
         // Built-in array_filter accepts both the data and the function
@@ -83,10 +92,5 @@ class TestCarlosAmores extends Command
         //
         //
         //
-        
-
-
     }
-
-
 }

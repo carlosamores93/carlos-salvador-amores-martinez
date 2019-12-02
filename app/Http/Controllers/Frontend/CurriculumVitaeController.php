@@ -11,32 +11,35 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class CurriculumVitaeController extends Controller{
+class CurriculumVitaeController extends Controller
+{
 
 
 
-    public function index(){
+    public function index()
+    {
         $works = $this->getAllWorks();
         $skills = $this->getAllSkills();
         $miniskills = $this->getAllMiniSkills();
         $user = $this->getUser();
         if (Cache::has('works.all')) {
             return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
-        }elseif ($this->existsSkillsWorksUser($works, $skills, $miniskills, $user)) {
+        } elseif ($this->existsSkillsWorksUser($works, $skills, $miniskills, $user)) {
             $this->parseStartEndDateWorks($works);
             if (env('CACHE_DRIVER') === 'redis') {
                 Cache::tags('works')->put('works.all', $works, 3600);
-            }else{
+            } else {
                 Cache::put('works.all', $works, 3600);
             }
             return view('front.curriculum-vitae', compact('works', 'skills', 'miniskills', 'user'));
-        }else{
+        } else {
             Cache::flush();
-    	    return view('front.curriculum');
+            return view('front.curriculum');
         }
     }
 
-    private function existsSkillsWorksUser($works, $skills, $miniskills, $user){
+    private function existsSkillsWorksUser($works, $skills, $miniskills, $user)
+    {
         return isset($works) && ($works->count() > 0) && isset($skills) && ($skills->count() > 0) && isset($miniskills) && ($miniskills->count() > 0) && isset($user);
     }
 
@@ -44,7 +47,7 @@ class CurriculumVitaeController extends Controller{
     {
         if (Cache::has('works.all')) {
             $works = Cache::get('works.all');
-        }else{
+        } else {
             $works = Work::where('status', 1)->orderBy('start_date', 'ASC')->get();
         }
         return $works;
@@ -64,7 +67,7 @@ class CurriculumVitaeController extends Controller{
     {
         if (Cache::has('miniskills.all')) {
             $miniskills = Cache::get('miniskills.all');
-        }else{
+        } else {
             $miniskills = MiniSkill::where('status', 1)->orderBy('progress', 'DESC')->get();
             Cache::put('miniskills.all', $miniskills, 3600);
         }
@@ -89,16 +92,14 @@ class CurriculumVitaeController extends Controller{
     private function parseStartEndDateWorks(&$works)
     {
         foreach ($works as $w) {
-            if(isset($w->start_date)) {
+            if (isset($w->start_date)) {
                 $w->start_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->start_date)->locale('es')->isoFormat('MMMM YYYY'));
             }
-            if(isset($w->end_date)) {
+            if (isset($w->end_date)) {
                 $w->end_date = ucfirst(Carbon::createFromFormat('Y-m-d H:i:s', $w->end_date)->locale('es')->isoFormat('MMMM YYYY'));
-            }else{
+            } else {
                 $w->end_date = 'Actualmente';
             }
         }
     }
-
-
 }

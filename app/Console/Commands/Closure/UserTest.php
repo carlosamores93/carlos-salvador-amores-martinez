@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands\Closure;
 
-class UserTest{
+class UserTest
+{
     public $id;
     public $Name;
     public $UserName;

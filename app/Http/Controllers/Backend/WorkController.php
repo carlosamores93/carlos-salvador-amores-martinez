@@ -55,7 +55,7 @@ class WorkController extends Controller
         $this->storeImgForProduct($request);
         if (env('CACHE_DRIVER') === 'redis') {
             Cache::tags('works')->flush();
-        }else{
+        } else {
             Cache::forget('works.all');
         }
         //Cache::flush();
@@ -105,7 +105,7 @@ class WorkController extends Controller
         $this->storeImgForProduct($request);
         if (env('CACHE_DRIVER') === 'redis') {
             Cache::tags('works')->flush();
-        }else{
+        } else {
             Cache::forget('works.all');
         }
         //Cache::flush();
@@ -124,7 +124,7 @@ class WorkController extends Controller
         $work->delete();
         if (env('CACHE_DRIVER') === 'redis') {
             Cache::tags('works')->flush();
-        }else{
+        } else {
             Cache::forget('works.all');
         }
         //Cache::flush();
@@ -133,11 +133,11 @@ class WorkController extends Controller
 
     private function storeImgForProduct(Request $request)
     {
-        if($request->file('file')){
+        if ($request->file('file')) {
             $image_name = str_slug($request->company) .'.' . $request->file('file')->getClientOriginalExtension();
             if (env('APP_ENV') == 'local') {
                 $request->file('file')->move(base_path() . '/public/img/', $image_name);
-            }else{
+            } else {
                 $request->file('file')->move(base_path() . '/public_html/img/', $image_name);
             }
         }
