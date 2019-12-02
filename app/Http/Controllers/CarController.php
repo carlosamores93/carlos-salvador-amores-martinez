@@ -9,48 +9,40 @@ use Illuminate\Support\Str;
 class CarController extends Controller
 {
 
-public function index(Request $request)
-{
-    if (empty($request->get('search'))) {
-        $cars = Car::all();
-    } else {
-        // Uso de scopes
-        // https://www.youtube.com/watch?v=lsFXi1ILD2Y
-        $cars = Car::searchitem($request->get('search'))->get();
+    public function index(Request $request)
+    {
+        if (empty($request->get('search'))) {
+            $cars = Car::all();
+        } else {
+            // Uso de scopes
+            // https://www.youtube.com/watch?v=lsFXi1ILD2Y
+            $cars = Car::searchitem($request->get('search'))->get();
+        }
+        return view('front.crud-mongodb.index', compact('cars'));
     }
-    return view('front.crud-mongodb.index', compact('cars'));
-}
 
-public function create()
-{
-    return view('front.crud-mongodb.create');
-}
+    public function create()
+    {
+        return view('front.crud-mongodb.create');
+    }
 
-public function store(Request $request)
-{
-    $car = new Car();
-    $car->company = $request->get('company');
-    $car->model = $request->get('model');
-    $car->status = $request->get('status');
-    $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));
-    $car->description = $request->get('description');
-    $car->save();
-    return redirect('crud-with-mongodb')->with('success', 'Car has been successfully added');
-}
+    public function store(Request $request)
+    {
+        $car = new Car();
+        $car->company = $request->get('company');
+        $car->model = $request->get('model');
+        $car->status = $request->get('status');
+        $car->slug = Str::slug($request->get('company').'-'.$request->get('model'));
+        $car->description = $request->get('description');
+        $car->save();
+        return redirect('crud-with-mongodb')->with('success', 'Car has been successfully added');
+    }
 
 
-public function edit($id)
+    public function edit($id)
     {
         $car = Car::find($id);
-<<<<<<< HEAD
-        return view('front.crud-mongodb.edit',compact('car','id'));
-=======
-<<<<<<< Updated upstream
-        return view('front.mongodb-crud-car.edit',compact('car','id'));
-=======
         return view('front.crud-mongodb.edit', compact('car', 'id'));
->>>>>>> Stashed changes
->>>>>>> feature/execute-grumphp
     }
 
     public function update(Request $request, $id)
@@ -69,14 +61,6 @@ public function edit($id)
     {
         $car = Car::find($id);
         $car->delete();
-<<<<<<< HEAD
-        return redirect('crud-with-mongodb')->with('success','Car has been  deleted');
-=======
-<<<<<<< Updated upstream
-        return redirect('car/index')->with('success','Car has been  deleted');
-=======
         return redirect('crud-with-mongodb')->with('success', 'Car has been  deleted');
->>>>>>> Stashed changes
->>>>>>> feature/execute-grumphp
     }
 }
