@@ -76,7 +76,7 @@ class RegisterController extends Controller
         if (env('APP_ENV') == 'local') {
             $authentication = 'ok';
             return view('front.register', compact('authentication'));
-        }else{
+        } else {
             return abort(404);
         }
     }

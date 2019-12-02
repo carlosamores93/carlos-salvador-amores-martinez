@@ -16,6 +16,6 @@ class Car extends Eloquent
 
     public function scopeSearchItem($query, $search)
     {
-    	$query->where('company', 'like', '%'.$search.'%');
+        $query->where('company', 'like', '%'.$search.'%');
     }
 }

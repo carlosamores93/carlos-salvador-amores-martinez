@@ -38,5 +38,4 @@ class DatabaseSeeder extends Seeder
         factory(Work::class, 15)->create();
         factory(Article::class, 30)->create();
     }
-    }
 }

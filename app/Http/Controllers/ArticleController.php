@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    //  https://github.com/bradtraversy/larticles_api 
+    //  https://github.com/bradtraversy/larticles_api
     //  https://www.youtube.com/watch?v=DJ6PD_jBtU0
     
     /**
@@ -46,7 +46,7 @@ class ArticleController extends Controller
         //$article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
-        if($article->save()) {
+        if ($article->save()) {
             return new ArticleResource($article);
         }
     }
@@ -99,8 +99,8 @@ class ArticleController extends Controller
     {
         // Get article
         $article = Article::findOrFail($id);
-        if($article->delete()) {
+        if ($article->delete()) {
             return new ArticleResource($article);
-        } 
+        }
     }
 }

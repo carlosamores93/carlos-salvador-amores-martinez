@@ -34,7 +34,7 @@ class ForgotPasswordController extends Controller
     {
         if (env('APP_ENV') == 'local') {
             return view('auth.passwords.email');
-        }else{
+        } else {
             return abort(404);
         }
     }
