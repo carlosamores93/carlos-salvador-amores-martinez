@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->command('command:notices')->dailyAt('08:00');
         $schedule->command('command:notices')->dailyAt('15:00');
-        $schedule->command('command:notices')->dailyAt('22:00');
+        $schedule->command('command:notices')->dailyAt('20:00');
     }
 
     /**
